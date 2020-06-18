@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="pane" prefHeight="600.0" prefWidth="1024.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.GameView">
+   <children>
+      <GridPane layoutX="110.0" layoutY="116.0" prefHeight="436.0" prefWidth="804.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button layoutX="546.0" layoutY="30.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$400" textFill="#f0f0f0" GridPane.columnIndex="5" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font></Button>
+            <Button layoutX="10.0" layoutY="30.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$800" textFill="#f0f0f0" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$400" textFill="#f0f0f0" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font></Button>
+            <Button layoutX="10.0" layoutY="30.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$400" textFill="#f0f0f0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font></Button>
+            <Button layoutX="144.0" layoutY="30.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$400" textFill="#f0f0f0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font></Button>
+            <Button layoutX="278.0" layoutY="30.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$400" textFill="#f0f0f0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font></Button>
+            <Button layoutX="412.0" layoutY="30.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$400" textFill="#f0f0f0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font></Button>
+            <Button layoutX="10.0" layoutY="117.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$800" textFill="#f0f0f0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font></Button>
+            <Button layoutX="10.0" layoutY="117.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$800" textFill="#f0f0f0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font></Button>
+            <Button layoutX="278.0" layoutY="117.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$800" textFill="#f0f0f0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font></Button>
+            <Button layoutX="412.0" layoutY="117.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$800" textFill="#f0f0f0" GridPane.columnIndex="4" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font></Button>
+            <Button layoutX="546.0" layoutY="117.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$800" textFill="#f0f0f0" GridPane.columnIndex="5" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font></Button>
+            <Button layoutX="10.0" layoutY="117.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$1200" textFill="#f0f0f0" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font></Button>
+            <Button layoutX="10.0" layoutY="205.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$1200" textFill="#f0f0f0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font></Button>
+            <Button layoutX="144.0" layoutY="205.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$1200" textFill="#f0f0f0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font></Button>
+            <Button layoutX="278.0" layoutY="205.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$1200" textFill="#f0f0f0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font></Button>
+            <Button layoutX="412.0" layoutY="205.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$1200" textFill="#f0f0f0" GridPane.columnIndex="4" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font></Button>
+            <Button layoutX="546.0" layoutY="205.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$1200" textFill="#f0f0f0" GridPane.columnIndex="5" GridPane.rowIndex="3">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font></Button>
+            <Button layoutX="10.0" layoutY="205.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$1600" textFill="#f0f0f0" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font></Button>
+            <Button layoutX="10.0" layoutY="292.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$2000" textFill="#f0f0f0" GridPane.rowIndex="5">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font></Button>
+            <Button layoutX="10.0" layoutY="380.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$2000" textFill="#f0f0f0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font></Button>
+            <Button layoutX="10.0" layoutY="380.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$2000" textFill="#f0f0f0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font></Button>
+            <Button layoutX="278.0" layoutY="380.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$2000" textFill="#f0f0f0" GridPane.columnIndex="3" GridPane.rowIndex="5">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font></Button>
+            <Button layoutX="412.0" layoutY="380.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$2000" textFill="#f0f0f0" GridPane.columnIndex="4" GridPane.rowIndex="5">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font></Button>
+            <Button layoutX="546.0" layoutY="380.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$2000" textFill="#f0f0f0" GridPane.columnIndex="5" GridPane.rowIndex="5">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font></Button>
+            <Button layoutX="10.0" layoutY="292.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$1600" textFill="#f0f0f0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font></Button>
+            <Button layoutX="10.0" layoutY="292.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$1600" textFill="#f0f0f0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font></Button>
+            <Button layoutX="278.0" layoutY="292.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$1600" textFill="#f0f0f0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font></Button>
+            <Button layoutX="412.0" layoutY="292.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$1600" textFill="#f0f0f0" GridPane.columnIndex="4" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font></Button>
+            <Button layoutX="546.0" layoutY="292.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$1600" textFill="#f0f0f0" GridPane.columnIndex="5" GridPane.rowIndex="4">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font></Button>
+            <Label text="Kategorie 1" textFill="#ebebeb">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="34.0" text="Kategorie 2" textFill="#ebebeb" GridPane.columnIndex="1">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="144.0" layoutY="34.0" text="Kategorie 3" textFill="#ebebeb" GridPane.columnIndex="2">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="278.0" layoutY="34.0" text="Kategorie 4" textFill="#ebebeb" GridPane.columnIndex="3">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="412.0" layoutY="34.0" text="Kategorie 5" textFill="#ebebeb" GridPane.columnIndex="4">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="546.0" layoutY="34.0" text="Kategorie 6" textFill="#ebebeb" GridPane.columnIndex="5">
+               <font>
+                  <Font name="Century Gothic" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </GridPane>
+      <ImageView fitHeight="228.0" fitWidth="468.0" layoutX="278.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/title.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="925.0" layoutY="560.0" mnemonicParsing="false" onAction="#closeGame" prefHeight="26.0" prefWidth="78.0" text="Beenden" textFill="#f0f0f0">
+         <font>
+            <Font name="Century Gothic" size="12.0" />
+         </font></Button>
+      <Button layoutX="925.0" layoutY="526.0" mnemonicParsing="false" onAction="#closeGame" prefHeight="26.0" prefWidth="78.0" text="Speichern" textFill="#f0f0f0">
+         <font>
+            <Font name="Century Gothic" size="12.0" />
+         </font></Button>
+      <Label layoutX="22.0" layoutY="25.0" prefHeight="47.0" prefWidth="153.0" style="-fx-border-color: #fff;" />
+      <Label layoutX="29.0" layoutY="39.0" text="Kontostand:" textFill="#ededed">
+         <font>
+            <Font name="Century Gothic" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="136.0" layoutY="36.0" text="0" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label alignment="CENTER" layoutX="827.0" layoutY="25.0" prefHeight="47.0" prefWidth="174.0" style="-fx-border-color: #fff;" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Label>
+   </children>
+</AnchorPane>

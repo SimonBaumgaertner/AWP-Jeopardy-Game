@@ -6,33 +6,33 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #ae8fb8;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: #ae8fb8;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainView">
    <children>
-      <Pane fx:id="pane" prefHeight="600.0" prefWidth="500.0" style="-fx-background-image: jdnk;" stylesheets="@stylesheet.css">
+      <Pane fx:id="pane" prefHeight="600.0" prefWidth="500.0" stylesheets="@stylesheet.css">
          <children>
             <TextField layoutX="135.0" layoutY="162.0" prefHeight="38.0" prefWidth="274.0" promptText="Spieler- Name" style="-fx-background-color: #d2d2d2; -fx-background-insets: 0;" styleClass="text-input" stylesheets="@stylesheet.css" />
-            <Button layoutX="90.0" layoutY="249.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="320.0" style="-fx-background-radius: 4;" stylesheets="@stylesheet.css" text="Start" textFill="#d2d2d2">
+            <Button layoutX="90.0" layoutY="249.0" mnemonicParsing="false" onAction="#startGame" prefHeight="42.0" prefWidth="320.0" style="-fx-background-radius: 4;" stylesheets="@stylesheet.css" text="Start" textFill="#d2d2d2">
                <font>
-                  <Font size="19.0" />
+                  <Font name="Century Gothic" size="19.0" />
                </font>
             </Button>
             <Button layoutX="90.0" layoutY="395.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="320.0" style="-fx-background-radius: 4;" stylesheets="@stylesheet.css" text="Rangliste" textFill="#d2d2d2">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Century Gothic" size="19.0" />
                </font>
                <styleClass>
                   <String fx:value="button" />
                   <String fx:value="button" />
                </styleClass>
             </Button>
-            <Button layoutX="90.0" layoutY="469.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="320.0" style="-fx-background-radius: 4;" stylesheets="@stylesheet.css" text="Beenden" textFill="#d2d2d2">
+            <Button layoutX="90.0" layoutY="469.0" mnemonicParsing="false" onAction="#exitGame" prefHeight="39.0" prefWidth="320.0" style="-fx-background-radius: 4;" stylesheets="@stylesheet.css" text="Beenden" textFill="#d2d2d2">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Century Gothic" size="19.0" />
                </font>
             </Button>
             <Button layoutX="90.0" layoutY="323.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="320.0" style="-fx-background-radius: 4;" stylesheets="@stylesheet.css" text="Load Game" textFill="#d2d2d2">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Century Gothic" size="19.0" />
                </font>
             </Button>
             <Label layoutX="91.0" layoutY="162.0" prefHeight="38.0" prefWidth="46.0" style="-fx-border-color: #d2d2d2; -fx-border-radius: 3;" />
