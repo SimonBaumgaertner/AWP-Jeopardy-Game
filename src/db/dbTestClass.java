@@ -2,8 +2,8 @@ package db;
 
 public class dbTestClass {
     public static void main(String[] args) {
-        DatabaseHelper dh;
-        dh = new DatabaseHelper();
-        dh.createDatabase();
+        DatabaseHelper dbh = new DatabaseHelper();
+        dbh.executeSqlStatement("Insert into template values ('test232');");
+
     }
 }
