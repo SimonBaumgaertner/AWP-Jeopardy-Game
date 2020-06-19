@@ -85,21 +85,23 @@ public class ScriptRunner {
         this.fullLineDelimiter = fullLineDelimiter;
     }
 
-    public void runScript(Reader reader) throws Exception {
+    public String runScript(Reader reader) throws Exception {
         setAutoCommit();
-
+        String answer = "";
         try {
-            if (sendFullScript) {
-                executeFullScript(reader);
+            if (false) {
+                answer = executeFullScript(reader);
             } else {
-                executeLineByLine(reader);
+                answer = executeLineByLine(reader);
             }
         } finally {
             rollbackConnection();
         }
+        return answer;
     }
 
-    private void executeFullScript(Reader reader) throws Exception {
+    private String executeFullScript(Reader reader) throws Exception {
+        String answer = "";
         StringBuilder script = new StringBuilder();
         try {
             BufferedReader lineReader = new BufferedReader(reader);
@@ -110,22 +112,24 @@ public class ScriptRunner {
             }
             String command = script.toString();
             println(command);
-            executeStatement(command);
+            answer = executeStatement(command);
             commitConnection();
         } catch (Exception e) {
             String message = "Error executing: " + script + ".  Cause: " + e;
             printlnError(message);
             throw new Exception(message, e);
         }
+        return answer;
     }
 
-    private void executeLineByLine(Reader reader) throws Exception {
+    private String executeLineByLine(Reader reader) throws Exception {
+        String answer = "";
         StringBuilder command = new StringBuilder();
         try {
             BufferedReader lineReader = new BufferedReader(reader);
             String line;
             while ((line = lineReader.readLine()) != null) {
-                handleLine(command, line);
+                answer += handleLine(command, line);
             }
             commitConnection();
             checkForMissingLineTerminator(command);
@@ -134,6 +138,7 @@ public class ScriptRunner {
             printlnError(message);
             throw new Exception(message, e);
         }
+        return answer;
     }
 
     public void closeConnection() {
@@ -180,7 +185,8 @@ public class ScriptRunner {
         }
     }
 
-    private void handleLine(StringBuilder command, String line) throws SQLException {
+    private String handleLine(StringBuilder command, String line) throws SQLException {
+        String answer = "";
         String trimmedLine = line.trim();
         if (lineIsComment(trimmedLine)) {
             Matcher matcher = DELIMITER_PATTERN.matcher(trimmedLine);
@@ -192,12 +198,13 @@ public class ScriptRunner {
             command.append(line.substring(0, line.lastIndexOf(delimiter)));
             command.append(LINE_SEPARATOR);
             println(command);
-            executeStatement(command.toString());
+            answer = executeStatement(command.toString());
             command.setLength(0);
         } else if (trimmedLine.length() > 0) {
             command.append(line);
             command.append(LINE_SEPARATOR);
         }
+        return answer;
     }
 
     private boolean lineIsComment(String trimmedLine) {
@@ -209,8 +216,9 @@ public class ScriptRunner {
         return !fullLineDelimiter && trimmedLine.contains(delimiter) || fullLineDelimiter && trimmedLine.equals(delimiter);
     }
 
-    private void executeStatement(String command) throws SQLException {
+    private String executeStatement(String command) throws SQLException {
         Statement statement = connection.createStatement();
+        String answer = "";
         try {
             statement.setEscapeProcessing(escapeProcessing);
             String sql = command;
@@ -221,7 +229,7 @@ public class ScriptRunner {
                 boolean hasResults = statement.execute(sql);
                 while (!(!hasResults && statement.getUpdateCount() == -1)) {
                     checkWarnings(statement);
-                    printResults(statement, hasResults);
+                    answer += printResults(statement, hasResults);
                     hasResults = statement.getMoreResults();
                 }
             } catch (SQLWarning e) {
@@ -241,6 +249,7 @@ public class ScriptRunner {
                 // Ignore to workaround a bug in some connection pools
                 // (Does anyone know the details of the bug?)
             }
+            return answer;
         }
     }
 
@@ -256,9 +265,10 @@ public class ScriptRunner {
         }
     }
 
-    private void printResults(Statement statement, boolean hasResults) {
+    private String printResults(Statement statement, boolean hasResults) {
+        String answer = "";
         if (!hasResults) {
-            return;
+            return answer;
         }
         try (ResultSet rs = statement.getResultSet()) {
             ResultSetMetaData md = rs.getMetaData();
@@ -271,13 +281,16 @@ public class ScriptRunner {
             while (rs.next()) {
                 for (int i = 0; i < cols; i++) {
                     String value = rs.getString(i + 1);
+                    answer += value + "\t";
                     print(value + "\t");
                 }
                 println("");
+                answer += "\n";
             }
         } catch (SQLException e) {
             printlnError("Error printing results: " + e.getMessage());
         }
+        return answer;
     }
 
     private void print(Object o) {

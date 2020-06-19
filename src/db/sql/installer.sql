@@ -8,7 +8,7 @@ create table `template` (
 );
 
 create table `category` (
-	`categoryId` int NOT NULL,
+	`categoryId` int NOT NULL auto_increment,
     `categoryName` varchar(50) NOT NULL,
     `templateName` varchar(50) NOT NULL,
     primary key(`categoryId`),
@@ -16,7 +16,7 @@ create table `category` (
 );
 
 create table `field` (
-	`fieldId` int NOT NULL,
+	`fieldId` int NOT NULL auto_increment,
     `categoryId` int NOT NULL,
     `rowNumber` int not null,
     primary key(`fieldId`),
@@ -24,7 +24,7 @@ create table `field` (
 );
 
 create table `question` (
-	`questionId` int not null,
+	`questionId` int not null auto_increment,
 	`fieldId` int NOT NULL,
     `statement` varchar(200) not null,
     `answer` varchar(50) not null,
@@ -33,14 +33,14 @@ create table `question` (
     );
     
     create table `game` (
-	`gameId` int not null,
+	`gameId` int not null auto_increment,
     `templateName` varchar(50) NOT NULL,
      primary key(`gameId`),
     FOREIGN KEY (`templateName`) REFERENCES template(`templateName`)
     );
     
 create table `player` (
-	`playerId` int not null,
+	`playerId` int not null auto_increment,
     `playerName` varchar(50) not null,
     `gameId` int not null,
 	`points` int not null,
@@ -50,11 +50,12 @@ create table `player` (
 
     
 create table `answeredQuestions` (
-	`anweredQuestionsId` int not null,
+	`anweredQuestionsId` int not null auto_increment,
 	`gameId` int not null,
     `questionId` int not null,
 	primary key(`anweredQuestionsId`),
     FOREIGN KEY (`gameId`) REFERENCES game(`gameId`),
     FOREIGN KEY (`questionId`) REFERENCES question(`questionId`)
     );
+    
     

@@ -1,6 +1,7 @@
 package db;
 
 
+import Entities.Template;
 import db.cfg.CfgReader;
 import db.sql.ScriptRunner;
 
@@ -10,13 +11,15 @@ import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.List;
 
 
 public class DatabaseHelper {
 
     CfgReader cfgReader = new CfgReader();
+    EntityParser ep = new EntityParser();
 
-    public boolean executeSqlStatement(String sqlStatement) {
+    public String executeSqlStatement(String sqlStatement) {
 
         String path = Paths.get("").toAbsolutePath().toString() + "/src/db/sql/temp.sql";
         try {
@@ -33,7 +36,7 @@ public class DatabaseHelper {
         return executeSqlData(Paths.get(path));
     }
 
-    public boolean executeSqlData(Path path) {
+    public String executeSqlData(Path path) {
         //Registering the Driver
         try {
             DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
@@ -54,12 +57,12 @@ public class DatabaseHelper {
         }
         //Running the script
         try {
-            sr.runScript(reader);
+            String console = sr.runScript(reader);
             System.out.println("script ran SUCCESSFULLY!");
-            return true;
+            return console;
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            return null;
         }
     }
 
@@ -108,5 +111,14 @@ public class DatabaseHelper {
         System.out.println(cfgReader.getUrl());
         System.out.println(cfgReader.getUser());
         System.out.println(cfgReader.getPassword());
+    }
+
+    public List<Object> getAllOf(Class c) {
+        String answer = executeSqlStatement("select * from " + c.toString().split("\\.")[1] + ";");
+        return ep.parseEntriesIntoObjects(answer, c);
+    }
+
+    public Object findById(String test232, Class<Template> templateClass) {
+        return null;
     }
 }
