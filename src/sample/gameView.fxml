@@ -26,7 +26,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button layoutX="546.0" layoutY="30.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$400" textFill="#f0f0f0" GridPane.columnIndex="5" GridPane.rowIndex="1">
+            <Button layoutX="546.0" layoutY="30.0" mnemonicParsing="false" onAction="#d400Buttons" prefHeight="47.0" prefWidth="120.0" text="\$400" textFill="#f0f0f0" GridPane.columnIndex="5" GridPane.rowIndex="1">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
@@ -34,23 +34,23 @@
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
-            <Button mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$400" textFill="#f0f0f0" GridPane.rowIndex="1">
+            <Button fx:id="d400" mnemonicParsing="false" onAction="#d400Buttons" prefHeight="47.0" prefWidth="120.0" text="\$400" textFill="#f0f0f0" GridPane.rowIndex="1">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
-            <Button layoutX="10.0" layoutY="30.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$400" textFill="#f0f0f0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button layoutX="10.0" layoutY="30.0" mnemonicParsing="false" onAction="#d400Buttons" prefHeight="47.0" prefWidth="120.0" text="\$400" textFill="#f0f0f0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
-            <Button layoutX="144.0" layoutY="30.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$400" textFill="#f0f0f0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Button layoutX="144.0" layoutY="30.0" mnemonicParsing="false" onAction="#d400Buttons" prefHeight="47.0" prefWidth="120.0" text="\$400" textFill="#f0f0f0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
-            <Button layoutX="278.0" layoutY="30.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$400" textFill="#f0f0f0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <Button layoutX="278.0" layoutY="30.0" mnemonicParsing="false" onAction="#d400Buttons" prefHeight="47.0" prefWidth="120.0" text="\$400" textFill="#f0f0f0" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
-            <Button layoutX="412.0" layoutY="30.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$400" textFill="#f0f0f0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+            <Button layoutX="412.0" layoutY="30.0" mnemonicParsing="false" onAction="#d400Buttons" prefHeight="47.0" prefWidth="120.0" text="\$400" textFill="#f0f0f0" GridPane.columnIndex="4" GridPane.rowIndex="1">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
@@ -191,17 +191,17 @@
          <font>
             <Font name="Century Gothic" size="12.0" />
          </font></Button>
-      <Label layoutX="22.0" layoutY="25.0" prefHeight="47.0" prefWidth="153.0" style="-fx-border-color: #fff;" />
-      <Label layoutX="29.0" layoutY="39.0" text="Kontostand:" textFill="#ededed">
+      <Label layoutX="22.0" layoutY="25.0" prefHeight="47.0" prefWidth="174.0" style="-fx-border-color: #fff;" />
+      <Label fx:id="kontooo" layoutX="29.0" layoutY="39.0" text="Kontostand:" textFill="#ededed">
          <font>
             <Font name="Century Gothic" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="136.0" layoutY="36.0" text="0" textFill="WHITE">
+      <Label fx:id="Count" layoutX="136.0" layoutY="36.0" text="0" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font></Label>
-      <Label alignment="CENTER" layoutX="827.0" layoutY="25.0" prefHeight="47.0" prefWidth="174.0" style="-fx-border-color: #fff;" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="nameFieldGame" alignment="CENTER" layoutX="827.0" layoutY="25.0" prefHeight="47.0" prefWidth="174.0" style="-fx-border-color: #fff;" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>

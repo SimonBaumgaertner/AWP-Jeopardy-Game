@@ -7,11 +7,18 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.SnapshotResult;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import jdk.internal.util.xml.impl.Input;
 
+import javax.lang.model.element.NestingKind;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 
 public class MainView {
+
+    @FXML
+    public TextField playerName;
 
     @FXML
     public void startGame(javafx.event.ActionEvent actionEvent) throws IOException {
@@ -28,4 +35,5 @@ public class MainView {
         Stage window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         window.close();
     }
+
 }
