@@ -1,23 +1,25 @@
 package Entities;
 
-public class Field {
-    int fieldId;
-    Category category;
+import db.DatabaseManager;
 
-    public Field(int fieldId, Category category, int rowNumber) {
-        this.fieldId = fieldId;
+public class Field extends Entity{
+    Category category;
+    int rowNumber;
+
+    public Field(int id, Category category, int rowNumber) {
+        this.id = id;
         this.category = category;
         this.rowNumber = rowNumber;
     }
 
-    int rowNumber;
-
-    public int getFieldId() {
-        return fieldId;
+    public Field(Category category, int rowNumber) {
+        this.category = category;
+        this.rowNumber = rowNumber;
+        id = DatabaseManager.getAndIncreaseID();
     }
 
-    public void setFieldId(int fieldId) {
-        this.fieldId = fieldId;
+    public Field() {
+
     }
 
     public Category getCategory() {
@@ -35,4 +37,17 @@ public class Field {
     public void setRowNumber(int rowNumber) {
         this.rowNumber = rowNumber;
     }
+
+    @Override
+    public void takeValuesOf(Entity e) {
+        Field model = (Field) e;
+        setCategory(model.getCategory());
+        setRowNumber(model.getRowNumber());
+    }
+
+    @Override
+    public String getValues() {
+        return "(" + id + ", " + getCategory().getId()+ ", " + getRowNumber() + ")";
+    }
+
 }

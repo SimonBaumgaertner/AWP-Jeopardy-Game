@@ -1,22 +1,25 @@
 package Entities;
 
-public class Category {
-    int categoryId;
+import db.DatabaseManager;
+
+public class Category extends Entity{
     String categoryName;
     Template template;
 
-    public Category(int categoryId, String categoryName, Template template) {
-        this.categoryId = categoryId;
+    public Category(int id, String categoryName, Template template) {
+        this.id = id;
         this.categoryName = categoryName;
         this.template = template;
     }
 
-    public int getCategoryId() {
-        return categoryId;
+    public Category(String categoryName, Template template) {
+        this.categoryName = categoryName;
+        this.template = template;
+        id = DatabaseManager.getAndIncreaseID();
     }
 
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
+    public Category() {
+
     }
 
     public String getCategoryName() {
@@ -34,4 +37,18 @@ public class Category {
     public void setTemplate(Template template) {
         this.template = template;
     }
+
+    @Override
+    public void takeValuesOf(Entity e) {
+        Category model = (Category) e;
+        setCategoryName(model.getCategoryName());
+        setTemplate(model.getTemplate());
+    }
+
+    @Override
+    public String getValues() {
+        return "(" + id + ", '" + getCategoryName()+ "'," + getTemplate().getId() + ")";
+    }
+
+
 }

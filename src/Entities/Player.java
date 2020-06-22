@@ -1,24 +1,28 @@
 package Entities;
 
-public class Player {
-    int playerId;
+import db.DatabaseManager;
+
+public class Player extends Entity{
     String playerName;
     Game game;
     int points;
 
-    public Player(int playerId, String playerName, Game game, int points) {
-        this.playerId = playerId;
+    public Player(int id, String playerName, Game game, int points) {
+        this.id = id;
         this.playerName = playerName;
         this.game = game;
         this.points = points;
     }
 
-    public int getPlayerId() {
-        return playerId;
+    public Player(String playerName, Game game, int points) {
+        this.playerName = playerName;
+        this.game = game;
+        this.points = points;
+        id = DatabaseManager.getAndIncreaseID();
     }
 
-    public void setPlayerId(int playerId) {
-        this.playerId = playerId;
+    public Player() {
+        
     }
 
     public String getPlayerName() {
@@ -44,4 +48,18 @@ public class Player {
     public void setPoints(int points) {
         this.points = points;
     }
+
+    @Override
+    public void takeValuesOf(Entity e) {
+        Player model = (Player) e;
+        setGame(model.getGame());
+        setPlayerName(model.getPlayerName());
+        setPoints(model.getPoints());
+    }
+    @Override
+    public String getValues() {
+        return "(" + id + ", " + getGame().getId()+ ", '" +  getPlayerName() + "', " + getPoints() +")";
+    }
+
+
 }

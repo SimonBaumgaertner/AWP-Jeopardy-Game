@@ -1,18 +1,19 @@
-drop database jeopardy;
+drop database if exists jeopardy;
 create database jeopardy;
 USE `jeopardy`;
 
 create table `template` (
+	`templateid` int NOT NULL auto_increment,
 	`templateName` varchar(50) NOT NULL,
-    primary key(`templateName`)
+    primary key(`templateid`)
 );
 
 create table `category` (
 	`categoryId` int NOT NULL auto_increment,
     `categoryName` varchar(50) NOT NULL,
-    `templateName` varchar(50) NOT NULL,
+    `templateid` int NOT NULL,
     primary key(`categoryId`),
-    FOREIGN KEY (`templateName`) REFERENCES Template(`templateName`)
+    FOREIGN KEY (`templateid`) REFERENCES Template(`templateid`)
 );
 
 create table `field` (
@@ -34,9 +35,9 @@ create table `question` (
     
     create table `game` (
 	`gameId` int not null auto_increment,
-    `templateName` varchar(50) NOT NULL,
+    `templateid` int NOT NULL,
      primary key(`gameId`),
-    FOREIGN KEY (`templateName`) REFERENCES template(`templateName`)
+    FOREIGN KEY (`templateid`) REFERENCES template(`templateid`)
     );
     
 create table `player` (
@@ -49,11 +50,11 @@ create table `player` (
     );
 
     
-create table `answeredQuestions` (
-	`anweredQuestionsId` int not null auto_increment,
+create table `answeredQuestion` (
+	`anweredQuestionId` int not null auto_increment,
 	`gameId` int not null,
     `questionId` int not null,
-	primary key(`anweredQuestionsId`),
+	primary key(`anweredQuestionId`),
     FOREIGN KEY (`gameId`) REFERENCES game(`gameId`),
     FOREIGN KEY (`questionId`) REFERENCES question(`questionId`)
     );

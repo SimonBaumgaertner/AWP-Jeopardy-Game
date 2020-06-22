@@ -1,7 +1,6 @@
 package db;
 
-
-import Entities.Template;
+import Entities.Entity;
 import db.cfg.CfgReader;
 import db.sql.ScriptRunner;
 
@@ -11,15 +10,19 @@ import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.List;
+import java.util.Collection;
 
-
-public class DatabaseHelper {
-
+public class DatabaseExecutor {
     CfgReader cfgReader = new CfgReader();
     EntityParser ep = new EntityParser();
 
-    public String executeSqlStatement(String sqlStatement) {
+
+    protected Collection<? extends Entity> getAllOfFromDatabase(Class c) {
+        String answer = executeSqlStatement("select * from " + c.toString().split("\\.")[1] + ";");
+        return ep.parseEntriesIntoObjects(answer, c);
+    }
+
+    protected String executeSqlStatement(String sqlStatement) {
 
         String path = Paths.get("").toAbsolutePath().toString() + "/src/db/sql/temp.sql";
         try {
@@ -27,7 +30,6 @@ public class DatabaseHelper {
 
             myWriter.write("USE jeopardy; \n" + sqlStatement);
             myWriter.close();
-            System.out.println("Successfully wrote to the file.");
         } catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
@@ -36,7 +38,7 @@ public class DatabaseHelper {
         return executeSqlData(Paths.get(path));
     }
 
-    public String executeSqlData(Path path) {
+    private String executeSqlData(Path path) {
         //Registering the Driver
         try {
             DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
@@ -45,7 +47,6 @@ public class DatabaseHelper {
         }
         //Getting the connection
         Connection con = getConnection();
-        System.out.println("Connection established......");
         //Initialize the script runner
         ScriptRunner sr = new ScriptRunner(con);
         //Creating a reader object
@@ -58,28 +59,10 @@ public class DatabaseHelper {
         //Running the script
         try {
             String console = sr.runScript(reader);
-            System.out.println("script ran SUCCESSFULLY!");
             return console;
         } catch (Exception e) {
             e.printStackTrace();
             return null;
-        }
-    }
-
-
-    public boolean createDatabase() {
-        try {
-            if (getConnection() == null) {
-                getmySqlConnection().createStatement().execute("CREATE DATABASE Jeopardy;");
-                System.out.println("Database 'Jeopardy' Created");
-                return true;
-            } else {
-                System.out.println("Database already exists");
-                return true;
-            }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-            return false;
         }
     }
 
@@ -96,7 +79,7 @@ public class DatabaseHelper {
     /**
      * @return connection to mySql
      */
-    public Connection getmySqlConnection() {
+    private Connection getmySqlConnection() {
         try {
             return DriverManager.getConnection(
                     cfgReader.getUrl() + "/mySql?&useLegacyDatetimeCode=false&serverTimezone=CET", cfgReader.getUser(), cfgReader.getPassword());
@@ -106,19 +89,31 @@ public class DatabaseHelper {
         }
     };
 
+    protected boolean install() {
+        //Registering the Driver
+        try {
+            DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        //Getting the connection
+        Connection con = getmySqlConnection();
+        System.out.println("Connection established......");
+        try {
+            con.createStatement().execute("drop database if exists jeopardy;");
+            con.createStatement().execute("create database jeopardy;");
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
 
-    public void printCfg() {
-        System.out.println(cfgReader.getUrl());
-        System.out.println(cfgReader.getUser());
-        System.out.println(cfgReader.getPassword());
-    }
-
-    public List<Object> getAllOf(Class c) {
-        String answer = executeSqlStatement("select * from " + c.toString().split("\\.")[1] + ";");
-        return ep.parseEntriesIntoObjects(answer, c);
-    }
-
-    public Object findById(String test232, Class<Template> templateClass) {
-        return null;
+        try {
+            Path installerPath = Paths.get(Paths.get("").toAbsolutePath().toString() + "/src/db/sql/installer.sql");
+            executeSqlData(installerPath);
+            System.out.println("Install was SUCCESSFUL!");
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }

@@ -1,21 +1,24 @@
 package Entities;
 
-public class Game {
-    int gameId;
+import db.DatabaseManager;
+
+public class Game extends Entity{
     Template template;
 
     public Game(int gameId, Template template) {
-        this.gameId = gameId;
+        this.id = gameId;
         this.template = template;
     }
 
-    public int getGameId() {
-        return gameId;
+    public Game(Template template) {
+        this.template = template;
+        id = DatabaseManager.getAndIncreaseID();
     }
 
-    public void setGameId(int gameId) {
-        this.gameId = gameId;
+    public Game() {
+
     }
+
 
     public Template getTemplate() {
         return template;
@@ -24,4 +27,16 @@ public class Game {
     public void setTemplate(Template template) {
         this.template = template;
     }
+
+    @Override
+    public void takeValuesOf(Entity e) {
+        Game model = (Game) e;
+        setTemplate(model.getTemplate());
+    }
+    @Override
+    public String getValues() {
+        return "(" + id + ", " + getTemplate().getId()+ ")";
+    }
+
+
 }

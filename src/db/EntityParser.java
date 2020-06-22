@@ -1,31 +1,81 @@
 package db;
 
 
-import Entities.Category;
-import Entities.Template;
+import Entities.*;
 
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
 public class EntityParser {
 
-    DatabaseHelper dbh;
+    DatabaseManager databaseManager;
 
+    public Collection<? extends Entity> parseEntriesIntoObjects(String answer, Class c) {
+        databaseManager = new DatabaseManager();
+        List<String> entriesAsStrings = Arrays.asList(answer.split("\n"));
 
-    public List<Object> parseEntriesIntoObjects(String answer, Class c) {
-        List<String> EntriesAsStrings = Arrays.asList(answer.split("\n"));
-        return createObjectsForEntries(EntriesAsStrings, c);
+        // if there is no entry entriesAsStrings will have emptyString at pos 0 so we empty it
+        if (entriesAsStrings.get(0).isEmpty()) {
+            entriesAsStrings = new LinkedList<>();
+        }
+        return createObjectsForEntries(entriesAsStrings, c);
     }
 
-    private List<Object> createObjectsForEntries(List<String> entriesAsStrings, Class c) {
-        List<Object> list = new LinkedList<>();
+    private Collection<? extends Entity> createObjectsForEntries(List<String> entriesAsStrings, Class c) {
+        List<Entity> list = new LinkedList<>();
         for (String entry: entriesAsStrings) {
-            System.out.println(entry.split("\\\\\t"));
-            System.out.println(entry);
-            if (c == Category.class) {
-               list.add(new Category(Integer.valueOf(entry.split("\t")[0]), entry.split("\t")[1], (Template) dbh.findById("test232", Template.class)));
+            if (c == Template.class) {
+                int id = Integer.valueOf(entry.split(" --- ")[0]);
+                String name = entry.split(" --- ")[1];
+
+                list.add(new Template(id,name));
+
+            } else if (c == Category.class) {
+                int id = Integer.valueOf(entry.split(" --- ")[0]);
+                String name = entry.split(" --- ")[1];
+                Template template = (Template) databaseManager.findById(Integer.valueOf(entry.split(" --- ")[2]), Template.class);
+
+                list.add(new Category(id,name,template));
+
+            } else if (c == Field.class) {
+                int id = Integer.valueOf(entry.split(" --- ")[0]);
+                Category category = (Category) databaseManager.findById(Integer.valueOf(entry.split(" --- ")[1]), Category.class);
+                int rowNumber = Integer.valueOf(entry.split(" --- ")[2]);
+
+                list.add(new Field(id,category,rowNumber));
+
+            } else if (c == Question.class) {
+                int id = Integer.valueOf(entry.split(" --- ")[0]);
+                Field field = (Field) databaseManager.findById(Integer.valueOf(entry.split(" --- ")[1]), Field.class);
+                String statement = entry.split(" --- ")[2];
+                String answer = entry.split(" --- ")[3];
+
+
+                list.add(new Question(id,field,statement,answer));
+
+            }  else if (c == Game.class) {
+                int id = Integer.valueOf(entry.split(" --- ")[0]);
+                Template template = (Template) databaseManager.findById(Integer.valueOf(entry.split(" --- ")[1]), Template.class);
+
+                list.add(new Game(id,template));
+
+            } else if (c == Player.class) {
+                int id = Integer.valueOf(entry.split(" --- ")[0]);
+                String name = entry.split(" --- ")[1];
+                Game game = (Game) databaseManager.findById(Integer.valueOf(entry.split(" --- ")[2]), Game.class);
+                int points = Integer.valueOf(entry.split(" --- ")[3]);
+
+                list.add(new Player(id,name,game,points));
+
+            }else if (c == AnsweredQuestion.class) {
+                int id = Integer.valueOf(entry.split(" --- ")[0]);
+                Game game = (Game) databaseManager.findById(Integer.valueOf(entry.split(" --- ")[1]), Game.class);
+                Question question = (Question) databaseManager.findById(Integer.valueOf(entry.split(" --- ")[2]), Question.class);
+
+                list.add(new AnsweredQuestion(id,game,question));
+
             }
         }
         return list;

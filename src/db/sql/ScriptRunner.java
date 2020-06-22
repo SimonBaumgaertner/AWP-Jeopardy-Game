@@ -111,7 +111,7 @@ public class ScriptRunner {
                 script.append(LINE_SEPARATOR);
             }
             String command = script.toString();
-            println(command);
+            // println(command);
             answer = executeStatement(command);
             commitConnection();
         } catch (Exception e) {
@@ -193,11 +193,11 @@ public class ScriptRunner {
             if (matcher.find()) {
                 delimiter = matcher.group(5);
             }
-            println(trimmedLine);
+            // println(trimmedLine);
         } else if (commandReadyToExecute(trimmedLine)) {
             command.append(line.substring(0, line.lastIndexOf(delimiter)));
             command.append(LINE_SEPARATOR);
-            println(command);
+            // println(command);
             answer = executeStatement(command.toString());
             command.setLength(0);
         } else if (trimmedLine.length() > 0) {
@@ -275,16 +275,16 @@ public class ScriptRunner {
             int cols = md.getColumnCount();
             for (int i = 0; i < cols; i++) {
                 String name = md.getColumnLabel(i + 1);
-                print(name + "\t");
+                // print(name + "\t");
             }
-            println("");
+            // println("");
             while (rs.next()) {
                 for (int i = 0; i < cols; i++) {
                     String value = rs.getString(i + 1);
-                    answer += value + "\t";
-                    print(value + "\t");
+                    answer += value + " --- ";
+                    // print(value + "\t");
                 }
-                println("");
+                // println("");
                 answer += "\n";
             }
         } catch (SQLException e) {

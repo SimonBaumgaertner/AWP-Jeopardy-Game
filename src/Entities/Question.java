@@ -1,24 +1,28 @@
 package Entities;
 
-public class Question {
-    int questionId;
+import db.DatabaseManager;
+
+public class Question extends Entity{
     Field field;
     String statement;
     String answer;
 
     public Question(int questionId, Field field, String statement, String answer) {
-        this.questionId = questionId;
+        this.id = questionId;
         this.field = field;
         this.statement = statement;
         this.answer = answer;
     }
 
-    public int getQuestionId() {
-        return questionId;
+    public Question(Field field, String statement, String answer) {
+        this.field = field;
+        this.statement = statement;
+        this.answer = answer;
+        id = DatabaseManager.getAndIncreaseID();
     }
 
-    public void setQuestionId(int questionId) {
-        this.questionId = questionId;
+    public Question() {
+
     }
 
     public Field getField() {
@@ -43,5 +47,18 @@ public class Question {
 
     public void setAnswer(String answer) {
         this.answer = answer;
+    }
+
+    @Override
+    public void takeValuesOf(Entity e) {
+        Question model = (Question) e;
+        setAnswer(model.getAnswer());
+        setField(model.getField());
+        setStatement(model.getStatement());
+    }
+
+    @Override
+    public String getValues() {
+        return "(" + id + ", " + getField().getId()+ ", '" +  getStatement() + "', '" + getAnswer() +"')";
     }
 }
