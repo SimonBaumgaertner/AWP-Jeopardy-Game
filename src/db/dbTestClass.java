@@ -130,7 +130,7 @@ public class dbTestClass {
         databaseManager.commitTransaction();
 
         List<Entity> list = databaseManager.getAllOf(Category.class);
-        Template categoryTemplate = ((Category)(list.get(0))).getTemplate();
+        Template categoryTemplate = ((Category)(list.get(list.size() -1))).getTemplate();
         if (categoryTemplate.equals(template)) {
             System.out.println("Test'relationsTest' was successful! (relations Match)");
         }

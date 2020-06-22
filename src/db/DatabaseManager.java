@@ -78,12 +78,21 @@ public class DatabaseManager {
     }
 
     public List<Entity> getAllOf(Class entityClass) {
-        return new LinkedList<>(executor.getAllOfFromDatabase(entityClass));
+      List<Entity> cloneFromDb = new LinkedList<>(executor.getAllOfFromDatabase(entityClass));
+      List<Entity> entitiesFromList = new LinkedList<>();
+      for (Entity entity : synchronizedEntities) {
+          if (entity.getClass().equals(entityClass)) {
+              entitiesFromList.add(entity);
+          }
+      }
+      synchronizedEntities = synchronizeLists(entitiesFromList,cloneFromDb);
+      return synchronizedEntities;
     }
+
 
     public Entity findById(int id, Class c) {
         for (Entity entity : synchronizedEntities) {
-            if (id == entity.getId() && entity.getClass().isInstance(c)) {
+            if (id == entity.getId()) {
                 return entity;
             }
         }
@@ -98,4 +107,32 @@ public class DatabaseManager {
     public static int getAndIncreaseID() {
         return id++;
     }
+    // add all Entities that do not exist in entitiesFromList also update all Entities that exist in both list
+    private List<Entity> synchronizeLists(List<Entity> entitiesFromList, List<Entity> cloneFromDb) {
+        Map<Integer, Entity> cloneListIdMap = new HashMap<>();
+        Map<Integer, Entity> realListIdMap = new HashMap<>();
+
+        for (Entity entity : entitiesFromList) {
+            cloneListIdMap.put(entity.getId(), entity);
+        }
+
+        for (Entity entity : cloneFromDb) {
+            realListIdMap.put(entity.getId(), entity);
+        }
+
+        for (Entity entity : cloneFromDb) {
+            // if entitiesFromList contain the entity from the dbClone
+            if (realListIdMap.containsKey(entity.getId())) {
+                // Update
+                realListIdMap.get(entity.getId()).takeValuesOf(entity);
+                // if entities dont exist in real list yet
+            } else {
+                // Add
+                synchronizedEntities.add(entity);
+            }
+        }
+        return entitiesFromList;
+
+    }
+
 }
