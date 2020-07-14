@@ -2,6 +2,7 @@ package Entities;
 
 import db.DatabaseManager;
 
+@Deprecated
 public class AnsweredQuestion extends Entity {
     Game game;
     Question question;

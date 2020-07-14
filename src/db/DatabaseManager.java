@@ -2,12 +2,13 @@ package db;
 
 import Entities.*;
 
+import javax.xml.crypto.Data;
 import java.util.*;
 
 public class DatabaseManager {
     // this List always has to be synchronized with Database.
     private static List<Entity> synchronizedEntities = new LinkedList<>();
-    private static int id = 0;
+    private static int id = 1;
     DatabaseTransaction databaseTransaction;
     DatabaseExecutor executor = new DatabaseExecutor();
 
@@ -59,12 +60,25 @@ public class DatabaseManager {
 
     static boolean matrixIsInitialized = false;
 
+    /*
+    if this is for install input true so ids get reset
+     */
+    public DatabaseManager(boolean install) {
+        if (install) {
+            if (!matrixIsInitialized) {
+                matrixIsInitialized = true;
+                initializeMatrix();
+            }
+        }
+    }
+
     public DatabaseManager() {
         if (!matrixIsInitialized) {
             matrixIsInitialized = true;
             initializeMatrix();
+            id = getHighestId() + 1;
         }
-        id = getHighestId() + 1;
+
     }
 
     private int getHighestId() {

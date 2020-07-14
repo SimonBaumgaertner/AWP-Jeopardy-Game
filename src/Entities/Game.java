@@ -2,8 +2,12 @@ package Entities;
 
 import db.DatabaseManager;
 
+import java.util.List;
+
 public class Game extends Entity{
     Template template;
+    List<Question> fieldList;
+
 
     public Game(int gameId, Template template) {
         this.id = gameId;

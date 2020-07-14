@@ -8,6 +8,8 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
+import static java.lang.Boolean.parseBoolean;
+
 public class EntityParser {
 
     DatabaseManager databaseManager;
@@ -51,9 +53,10 @@ public class EntityParser {
                 Field field = (Field) databaseManager.findById(Integer.valueOf(entry.split(" --- ")[1]), Field.class);
                 String statement = entry.split(" --- ")[2];
                 String answer = entry.split(" --- ")[3];
+                boolean answered = parseToBoolean(entry.split(" --- ")[4]);
 
 
-                list.add(new Question(id,field,statement,answer));
+                list.add(new Question(id,field,statement,answer,answered));
 
             }  else if (c == Game.class) {
                 int id = Integer.valueOf(entry.split(" --- ")[0]);
@@ -79,6 +82,10 @@ public class EntityParser {
             }
         }
         return list;
+    }
+
+    private boolean parseToBoolean(String s) {
+        return s.equals("1");
     }
 
 }

@@ -30,7 +30,7 @@ public class TestDataCreator {
              }
         }
 
-        DatabaseManager databaseManager = new DatabaseManager();
+        DatabaseManager databaseManager = new DatabaseManager(true);
 
 
         databaseManager.openTransaction();

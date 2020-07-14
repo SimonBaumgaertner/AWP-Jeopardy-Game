@@ -29,6 +29,7 @@ create table `question` (
 	`fieldId` int NOT NULL,
     `statement` varchar(200) not null,
     `answer` varchar(50) not null,
+    `answered` BOOLEAN,
     primary key(`questionId`),
     FOREIGN KEY (`fieldId`) REFERENCES `field`(`fieldId`)
     );
