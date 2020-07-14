@@ -22,7 +22,7 @@ public class MainView {
 
     @FXML
     public void startGame(javafx.event.ActionEvent actionEvent) throws IOException {
-        Parent gameView = FXMLLoader.load(getClass().getResource("gameView.fxml"));
+        Parent gameView = FXMLLoader.load(getClass().getResource("settingsView.fxml"));
 
         Scene scene2 = new Scene(gameView);
         Stage window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
