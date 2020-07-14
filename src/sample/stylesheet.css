@@ -18,3 +18,7 @@
 {
 -fx-background-color: linear-gradient(#d76b81,#080e30 80%)
 }
+.text-area, .text-area .viewport, .text-area .content {
+    -fx-background-color: transparent ;
+}
+

@@ -74,4 +74,7 @@ public class GameView implements Initializable {
 
     public void d400k4button(ActionEvent actionEvent) {
     }
+
+    public void d1200k4(ActionEvent actionEvent) {
+    }
 }
