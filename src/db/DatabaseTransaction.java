@@ -1,6 +1,6 @@
 package db;
 
-import Entities.Entity;
+import entities.Entity;
 
 import java.util.LinkedList;
 import java.util.List;

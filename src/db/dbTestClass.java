@@ -1,8 +1,8 @@
 package db;
 
-import Entities.Category;
-import Entities.Entity;
-import Entities.Template;
+import entities.Category;
+import entities.Entity;
+import entities.Template;
 
 import java.util.List;
 

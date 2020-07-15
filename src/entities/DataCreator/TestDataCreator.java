@@ -1,6 +1,6 @@
-package Entities.DataCreator;
+package entities.DataCreator;
 
-import Entities.*;
+import entities.*;
 import db.DatabaseManager;
 
 import java.util.Arrays;

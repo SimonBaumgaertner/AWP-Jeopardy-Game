@@ -1,4 +1,4 @@
-package sample;
+package gui;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -6,13 +6,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.SnapshotResult;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import jdk.internal.util.xml.impl.Input;
 
-import javax.lang.model.element.NestingKind;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 
 public class MainView {

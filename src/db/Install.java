@@ -1,6 +1,6 @@
 package db;
 
-import Entities.DataCreator.TestDataCreator;
+import entities.DataCreator.TestDataCreator;
 
 public class Install {
     public static void main(String[] args) {

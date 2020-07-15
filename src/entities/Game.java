@@ -1,4 +1,4 @@
-package Entities;
+package entities;
 
 import db.DatabaseManager;
 
@@ -7,6 +7,7 @@ import java.util.List;
 public class Game extends Entity{
     Template template;
     List<Question> fieldList;
+    List<Player> players;
 
 
     public Game(int gameId, Template template) {

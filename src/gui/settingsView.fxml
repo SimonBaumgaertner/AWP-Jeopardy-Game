@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="pane" prefHeight="600.0" prefWidth="500.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SettingsView">
+<AnchorPane fx:id="pane" prefHeight="600.0" prefWidth="500.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SettingsView">
    <children>
       <TextField fx:id="player1Name" layoutX="139.0" layoutY="153.0" prefHeight="38.0" prefWidth="274.0" promptText="Spieler- 1" style="-fx-background-color: #d2d2d2; -fx-background-insets: 0;" styleClass="text-input" stylesheets="@stylesheet.css" />
       <TextField fx:id="player2Name" layoutX="139.0" layoutY="217.0" prefHeight="38.0" prefWidth="274.0" promptText="Spieler- 2" style="-fx-background-color: #d2d2d2; -fx-background-insets: 0;" styleClass="text-input" stylesheets="@stylesheet.css" />

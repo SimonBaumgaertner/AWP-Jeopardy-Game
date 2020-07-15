@@ -1,9 +1,8 @@
-package sample;
+package gui;
 
-import Entities.Entity;
-import Entities.Template;
+import entities.Entity;
+import entities.Template;
 import db.DatabaseManager;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +14,6 @@ import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
 import java.io.IOException;
-import java.util.LinkedList;
 import java.util.List;
 
 public class  SettingsView {

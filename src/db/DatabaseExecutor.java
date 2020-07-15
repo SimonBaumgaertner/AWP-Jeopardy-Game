@@ -1,6 +1,6 @@
 package db;
 
-import Entities.Entity;
+import entities.Entity;
 import db.cfg.CfgReader;
 import db.sql.ScriptRunner;
 

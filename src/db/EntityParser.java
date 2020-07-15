@@ -1,14 +1,12 @@
 package db;
 
 
-import Entities.*;
+import entities.*;
 
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
-
-import static java.lang.Boolean.parseBoolean;
 
 public class EntityParser {
 
