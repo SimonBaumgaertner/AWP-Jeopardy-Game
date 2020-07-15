@@ -8,10 +8,13 @@
    <children>
       <Button fx:id="antwortButton" layoutX="270.0" layoutY="187.0" mnemonicParsing="false" onAction="#antwortButtonAction" text="Antwort" />
       <Button fx:id="closeQuestionButton" layoutX="534.0" layoutY="361.0" mnemonicParsing="false" onAction="#closeQuestion" text="OK" />
-      <TextArea fx:id="topTextArea" prefHeight="175.0" prefWidth="646.0" style="-fx-background-color: transparent;" stylesheets="@stylesheet.css" visible="false" />
+      <TextArea fx:id="topTextArea" editable="false" prefHeight="175.0" prefWidth="646.0" style="-fx-background-color: transparent;" stylesheets="@stylesheet.css" visible="false">
+         <font>
+            <Font size="15.0" />
+         </font></TextArea>
       <TextArea fx:id="bottomTextArea" disable="true" layoutY="213.0" prefHeight="187.0" prefWidth="646.0" stylesheets="@stylesheet.css" visible="false">
          <font>
-            <Font size="28.0" />
+            <Font size="30.0" />
          </font>
       </TextArea>
    </children>

@@ -26,7 +26,7 @@ public class QuestionView {
 
     @FXML
     public void initialize() {
-        question = new Question(null, "This is a Question", "This is the answer");
+        question = new Question(null, "mündliche oder schriftliche Erwiderung, Entgegnung", "Was ist Antwort?");
         topTextArea.setText(question.getStatement());
         topTextArea.setVisible(true);
     }
