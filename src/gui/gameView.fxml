@@ -26,123 +26,123 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button layoutX="546.0" layoutY="30.0" mnemonicParsing="false" onAction="#d400k1button" prefHeight="47.0" prefWidth="120.0" text="\$400" textFill="#f0f0f0" GridPane.columnIndex="5" GridPane.rowIndex="1">
+            <Button fx:id="k6d400" layoutX="546.0" layoutY="30.0" mnemonicParsing="false" onAction="#openQuestion" prefHeight="47.0" prefWidth="120.0" text="\$400" textFill="#f0f0f0" GridPane.columnIndex="5" GridPane.rowIndex="1">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
-            <Button layoutX="10.0" layoutY="30.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$800" textFill="#f0f0f0" GridPane.rowIndex="2">
+            <Button fx:id="k1d800" layoutX="10.0" layoutY="30.0" mnemonicParsing="false" onAction="#openQuestion" prefHeight="47.0" prefWidth="120.0" text="\$800" textFill="#f0f0f0" GridPane.rowIndex="2">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
-            <Button fx:id="k1d400" mnemonicParsing="false" onAction="#d400k1button" prefHeight="47.0" prefWidth="120.0" text="\$400" textFill="#f0f0f0" GridPane.rowIndex="1">
+            <Button fx:id="k1d400" mnemonicParsing="false" onAction="#openQuestion" prefHeight="47.0" prefWidth="120.0" text="\$400" textFill="#f0f0f0" GridPane.rowIndex="1">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
-            <Button fx:id="k2d400" layoutX="10.0" layoutY="30.0" mnemonicParsing="false" onAction="#d400k2button" prefHeight="47.0" prefWidth="120.0" text="\$400" textFill="#f0f0f0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button fx:id="k2d400" layoutX="10.0" layoutY="30.0" mnemonicParsing="false" onAction="#openQuestion" prefHeight="47.0" prefWidth="120.0" text="\$400" textFill="#f0f0f0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
-            <Button fx:id="k3d400" layoutX="144.0" layoutY="30.0" mnemonicParsing="false" onAction="#d400k3button" prefHeight="47.0" prefWidth="120.0" text="\$400" textFill="#f0f0f0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Button fx:id="k3d400" layoutX="144.0" layoutY="30.0" mnemonicParsing="false" onAction="#openQuestion" prefHeight="47.0" prefWidth="120.0" text="\$400" textFill="#f0f0f0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
-            <Button fx:id="k4d400" layoutX="278.0" layoutY="30.0" mnemonicParsing="false" onAction="#d400k4button" prefHeight="47.0" prefWidth="120.0" text="\$400" textFill="#f0f0f0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <Button fx:id="k4d400" layoutX="278.0" layoutY="30.0" mnemonicParsing="false" onAction="#closeGame" prefHeight="47.0" prefWidth="120.0" text="\$400" textFill="#f0f0f0" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
-            <Button layoutX="412.0" layoutY="30.0" mnemonicParsing="false" onAction="#d400k1button" prefHeight="47.0" prefWidth="120.0" text="\$400" textFill="#f0f0f0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+            <Button fx:id="k5d400" layoutX="412.0" layoutY="30.0" mnemonicParsing="false" onAction="#openQuestion" prefHeight="47.0" prefWidth="120.0" text="\$400" textFill="#f0f0f0" GridPane.columnIndex="4" GridPane.rowIndex="1">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
-            <Button layoutX="10.0" layoutY="117.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$800" textFill="#f0f0f0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Button fx:id="k2d800" layoutX="10.0" layoutY="117.0" mnemonicParsing="false" onAction="#openQuestion" prefHeight="47.0" prefWidth="120.0" text="\$800" textFill="#f0f0f0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
-            <Button layoutX="10.0" layoutY="117.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$800" textFill="#f0f0f0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <Button fx:id="k3d800" layoutX="10.0" layoutY="117.0" mnemonicParsing="false" onAction="#openQuestion" prefHeight="47.0" prefWidth="120.0" text="\$800" textFill="#f0f0f0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
-            <Button layoutX="278.0" layoutY="117.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$800" textFill="#f0f0f0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+            <Button fx:id="k4d800" layoutX="278.0" layoutY="117.0" mnemonicParsing="false" onAction="#openQuestion" prefHeight="47.0" prefWidth="120.0" text="\$800" textFill="#f0f0f0" GridPane.columnIndex="3" GridPane.rowIndex="2">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
-            <Button layoutX="412.0" layoutY="117.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$800" textFill="#f0f0f0" GridPane.columnIndex="4" GridPane.rowIndex="2">
+            <Button fx:id="k5d800" layoutX="412.0" layoutY="117.0" mnemonicParsing="false" onAction="#openQuestion" prefHeight="47.0" prefWidth="120.0" text="\$800" textFill="#f0f0f0" GridPane.columnIndex="4" GridPane.rowIndex="2">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
-            <Button layoutX="546.0" layoutY="117.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$800" textFill="#f0f0f0" GridPane.columnIndex="5" GridPane.rowIndex="2">
+            <Button fx:id="k6d800" layoutX="546.0" layoutY="117.0" mnemonicParsing="false" onAction="#openQuestion" prefHeight="47.0" prefWidth="120.0" text="\$800" textFill="#f0f0f0" GridPane.columnIndex="5" GridPane.rowIndex="2">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
-            <Button layoutX="10.0" layoutY="117.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$1200" textFill="#f0f0f0" GridPane.rowIndex="3">
+            <Button fx:id="k1d1200" layoutX="10.0" layoutY="117.0" mnemonicParsing="false" onAction="#openQuestion" prefHeight="47.0" prefWidth="120.0" text="\$1200" textFill="#f0f0f0" GridPane.rowIndex="3">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
-            <Button layoutX="10.0" layoutY="205.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$1200" textFill="#f0f0f0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Button fx:id="k2d1200" layoutX="10.0" layoutY="205.0" mnemonicParsing="false" onAction="#openQuestion" prefHeight="47.0" prefWidth="120.0" text="\$1200" textFill="#f0f0f0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
-            <Button layoutX="144.0" layoutY="205.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$1200" textFill="#f0f0f0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <Button fx:id="k3d1200" layoutX="144.0" layoutY="205.0" mnemonicParsing="false" onAction="#openQuestion" prefHeight="47.0" prefWidth="120.0" text="\$1200" textFill="#f0f0f0" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
-            <Button layoutX="278.0" layoutY="205.0" mnemonicParsing="false" onAction="#d1200k4" prefHeight="47.0" prefWidth="120.0" text="\$1200" textFill="#f0f0f0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+            <Button fx:id="k4d1200" layoutX="278.0" layoutY="205.0" mnemonicParsing="false" onAction="#openQuestion" prefHeight="47.0" prefWidth="120.0" text="\$1200" textFill="#f0f0f0" GridPane.columnIndex="3" GridPane.rowIndex="3">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
-            <Button layoutX="412.0" layoutY="205.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$1200" textFill="#f0f0f0" GridPane.columnIndex="4" GridPane.rowIndex="3">
+            <Button fx:id="k5d1200" layoutX="412.0" layoutY="205.0" mnemonicParsing="false" onAction="#openQuestion" prefHeight="47.0" prefWidth="120.0" text="\$1200" textFill="#f0f0f0" GridPane.columnIndex="4" GridPane.rowIndex="3">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
-            <Button layoutX="546.0" layoutY="205.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$1200" textFill="#f0f0f0" GridPane.columnIndex="5" GridPane.rowIndex="3">
+            <Button fx:id="k6d1200" layoutX="546.0" layoutY="205.0" mnemonicParsing="false" onAction="#openQuestion" prefHeight="47.0" prefWidth="120.0" text="\$1200" textFill="#f0f0f0" GridPane.columnIndex="5" GridPane.rowIndex="3">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
-            <Button layoutX="10.0" layoutY="205.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$1600" textFill="#f0f0f0" GridPane.rowIndex="4">
+            <Button fx:id="k1d1600" layoutX="10.0" layoutY="205.0" mnemonicParsing="false" onAction="#openQuestion" prefHeight="47.0" prefWidth="120.0" text="\$1600" textFill="#f0f0f0" GridPane.rowIndex="4">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
-            <Button layoutX="10.0" layoutY="292.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$2000" textFill="#f0f0f0" GridPane.rowIndex="5">
+            <Button fx:id="k1d2000" layoutX="10.0" layoutY="292.0" mnemonicParsing="false" onAction="#openQuestion" prefHeight="47.0" prefWidth="120.0" text="\$2000" textFill="#f0f0f0" GridPane.rowIndex="5">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
-            <Button layoutX="10.0" layoutY="380.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$2000" textFill="#f0f0f0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <Button fx:id="k2d2000" layoutX="10.0" layoutY="380.0" mnemonicParsing="false" onAction="#openQuestion" prefHeight="47.0" prefWidth="120.0" text="\$2000" textFill="#f0f0f0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
-            <Button layoutX="10.0" layoutY="380.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$2000" textFill="#f0f0f0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+            <Button fx:id="k3d2000" layoutX="10.0" layoutY="380.0" mnemonicParsing="false" onAction="#openQuestion" prefHeight="47.0" prefWidth="120.0" text="\$2000" textFill="#f0f0f0" GridPane.columnIndex="2" GridPane.rowIndex="5">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
-            <Button layoutX="278.0" layoutY="380.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$2000" textFill="#f0f0f0" GridPane.columnIndex="3" GridPane.rowIndex="5">
+            <Button fx:id="k4d2000" layoutX="278.0" layoutY="380.0" mnemonicParsing="false" onAction="#openQuestion" prefHeight="47.0" prefWidth="120.0" text="\$2000" textFill="#f0f0f0" GridPane.columnIndex="3" GridPane.rowIndex="5">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
-            <Button layoutX="412.0" layoutY="380.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$2000" textFill="#f0f0f0" GridPane.columnIndex="4" GridPane.rowIndex="5">
+            <Button fx:id="k5d2000" layoutX="412.0" layoutY="380.0" mnemonicParsing="false" onAction="#openQuestion" prefHeight="47.0" prefWidth="120.0" text="\$2000" textFill="#f0f0f0" GridPane.columnIndex="4" GridPane.rowIndex="5">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
-            <Button layoutX="546.0" layoutY="380.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$2000" textFill="#f0f0f0" GridPane.columnIndex="5" GridPane.rowIndex="5">
+            <Button fx:id="k6d2000" layoutX="546.0" layoutY="380.0" mnemonicParsing="false" onAction="#openQuestion" prefHeight="47.0" prefWidth="120.0" text="\$2000" textFill="#f0f0f0" GridPane.columnIndex="5" GridPane.rowIndex="5">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
-            <Button layoutX="10.0" layoutY="292.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$1600" textFill="#f0f0f0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <Button fx:id="k2d1600" layoutX="10.0" layoutY="292.0" mnemonicParsing="false" onAction="#openQuestion" prefHeight="47.0" prefWidth="120.0" text="\$1600" textFill="#f0f0f0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
-            <Button layoutX="10.0" layoutY="292.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$1600" textFill="#f0f0f0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+            <Button fx:id="k3d1600" layoutX="10.0" layoutY="292.0" mnemonicParsing="false" onAction="#openQuestion" prefHeight="47.0" prefWidth="120.0" text="\$1600" textFill="#f0f0f0" GridPane.columnIndex="2" GridPane.rowIndex="4">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
-            <Button layoutX="278.0" layoutY="292.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$1600" textFill="#f0f0f0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+            <Button fx:id="k4d1600" layoutX="278.0" layoutY="292.0" mnemonicParsing="false" onAction="#openQuestion" prefHeight="47.0" prefWidth="120.0" text="\$1600" textFill="#f0f0f0" GridPane.columnIndex="3" GridPane.rowIndex="4">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
-            <Button layoutX="412.0" layoutY="292.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$1600" textFill="#f0f0f0" GridPane.columnIndex="4" GridPane.rowIndex="4">
+            <Button fx:id="k5d1600" layoutX="412.0" layoutY="292.0" mnemonicParsing="false" onAction="#openQuestion" prefHeight="47.0" prefWidth="120.0" text="\$1600" textFill="#f0f0f0" GridPane.columnIndex="4" GridPane.rowIndex="4">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
-            <Button layoutX="546.0" layoutY="292.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="120.0" text="\$1600" textFill="#f0f0f0" GridPane.columnIndex="5" GridPane.rowIndex="4">
+            <Button fx:id="k6d1600" layoutX="546.0" layoutY="292.0" mnemonicParsing="false" onAction="#openQuestion" prefHeight="47.0" prefWidth="120.0" text="\$1600" textFill="#f0f0f0" GridPane.columnIndex="5" GridPane.rowIndex="4">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>

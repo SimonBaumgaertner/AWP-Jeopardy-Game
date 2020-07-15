@@ -44,7 +44,7 @@ public class GameView implements Initializable {
         button.setDisable(true);
     }
 
-    private void showQuestion(String category, int value) throws IOException {
+    private void showQuestion(String category, int row) throws IOException {
 
         Parent questionView = FXMLLoader.load(getClass().getResource("questionView.fxml"));
 
@@ -62,19 +62,12 @@ public class GameView implements Initializable {
 
     }
 
-    public void d400k1button(ActionEvent actionEvent)throws IOException {
-        showQuestion("K1",400);
-    }
-
-    public void d400k2button(ActionEvent actionEvent) {
-    }
-
-    public void d400k3button(ActionEvent actionEvent) {
-    }
-
-    public void d400k4button(ActionEvent actionEvent) {
-    }
-
-    public void d1200k4(ActionEvent actionEvent) {
+    @FXML
+    public void openQuestion(ActionEvent actionEvent)throws IOException {
+        String buttonName = ((Button) actionEvent.getSource()).getId();
+        String[] split = buttonName.split("k|d");
+        String category = split[1];
+        int row = Integer.valueOf(split[2]) / 400;
+        showQuestion(category, row);
     }
 }
