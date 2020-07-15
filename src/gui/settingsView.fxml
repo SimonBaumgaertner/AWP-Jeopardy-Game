@@ -28,7 +28,7 @@
             <Image url="@../img/title.png" />
          </image>
       </ImageView>
-      <ComboBox fx:id="settingCombo" layoutX="90.0" layoutY="333.0" onAction="#choseTemplate" prefHeight="38.0" prefWidth="327.0" stylesheets="@stylesheet.css" />
+      <ComboBox fx:id="settingCombo" layoutX="90.0" layoutY="333.0" prefHeight="38.0" prefWidth="327.0" stylesheets="@stylesheet.css" />
       <Label layoutX="93.0" layoutY="287.0" text="Template" textFill="#d2d2d2">
          <font>
             <Font name="Century Gothic" size="20.0" />
