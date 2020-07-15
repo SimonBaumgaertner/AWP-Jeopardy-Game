@@ -65,6 +65,8 @@ public class DatabaseManager {
      */
     public DatabaseManager(boolean install) {
         if (install) {
+            synchronizedEntities.clear();
+            id = 1;
             if (!matrixIsInitialized) {
                 matrixIsInitialized = true;
                 initializeMatrix();
