@@ -1,5 +1,6 @@
 package sample;
 
+import Entities.Entity;
 import Entities.Template;
 import db.DatabaseManager;
 import javafx.collections.ObservableList;
@@ -22,6 +23,8 @@ public class  SettingsView {
     ComboBox settingCombo;
 
     public void startGame(ActionEvent actionEvent) throws IOException {
+        Template chosenTemplate = (Template) settingCombo.getValue();
+
         Parent gameView = FXMLLoader.load(getClass().getResource("gameView.fxml"));
 
         Scene scene2 = new Scene(gameView);
@@ -33,8 +36,10 @@ public class  SettingsView {
     @FXML
     public void initialize() {
         DatabaseManager dbMangager = new DatabaseManager();
-       settingCombo.getItems().addAll((dbMangager.getAllOf(Template.class)));
-        settingCombo.setConverter(new StringConverter<Template>() {
+        List<Entity> templates = (dbMangager.getAllOf(Template.class));
+       settingCombo.getItems().addAll(templates);
+       settingCombo.setValue(templates.iterator().next());
+       settingCombo.setConverter(new StringConverter<Template>() {
 
             @Override
             public String toString(Template object) {
@@ -43,13 +48,11 @@ public class  SettingsView {
 
             @Override
             public Template fromString(String string) {
-                return (Template) settingCombo.getItems().stream().filter(ap ->
+                Template t = (Template) settingCombo.getItems().stream().filter(ap ->
                         ap.toString().equals(string)).findFirst().orElse(null);
+                System.out.println(t);
+                return t;
             }
         });
-    }
-    @FXML
-    public void choseTemplate(ActionEvent actionEvent) {
-
     }
 }
