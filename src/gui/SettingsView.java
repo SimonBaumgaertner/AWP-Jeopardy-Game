@@ -5,6 +5,7 @@ import entities.Game;
 import entities.Player;
 import entities.Template;
 import db.DatabaseManager;
+import game.GameManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -65,12 +66,11 @@ public class  SettingsView {
 
     public void createPlayedGame(Template template){
 
-        Game game = new Game(template);
-        Player player1 = new Player(player1Name.getText(), game, 0);
-        Player player2 = new Player(player2Name.getText(), game,  0);
+        GameManager gameManager = new GameManager();
 
-        game.getPlayers().add(player1);
-        game.getPlayers().add(player2);
+        gameManager.startGame(template, player1Name.getText(), player2Name.getText());
+
+
 
     }
 }
