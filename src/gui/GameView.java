@@ -1,5 +1,6 @@
 package gui;
 
+import game.GameManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -45,9 +46,8 @@ public class GameView implements Initializable {
     }
 
     private void showQuestion(int category, int row) throws IOException {
-
+        // GameManager.setActiveQuestionWith(category, row);
         Parent questionView = FXMLLoader.load(getClass().getResource("questionView.fxml"));
-
         Scene scene = new Scene(questionView);
         Stage window = new Stage();
         window.setScene(scene);

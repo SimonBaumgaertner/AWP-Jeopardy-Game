@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane fx:id="pane" prefHeight="400.0" prefWidth="607.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.QuestionView">
    <children>
-      <Button fx:id="antwortButton" layoutX="270.0" layoutY="187.0" mnemonicParsing="false" onAction="#antwortButtonAction" text="Antwort" />
-      <Button fx:id="closeQuestionButton" layoutX="534.0" layoutY="361.0" mnemonicParsing="false" onAction="#closeQuestion" text="OK" />
+      <Button fx:id="antwortButton" layoutX="293.0" layoutY="187.0" mnemonicParsing="false" onAction="#antwortButtonAction" text="Antwort" />
+      <Button fx:id="closeQuestionButton" layoutX="582.0" layoutY="361.0" mnemonicParsing="false" onAction="#closeQuestion" text="OK" />
       <TextArea fx:id="topTextArea" editable="false" prefHeight="175.0" prefWidth="646.0" style="-fx-background-color: transparent;" stylesheets="@stylesheet.css" visible="false">
          <font>
             <Font size="15.0" />
@@ -17,5 +18,16 @@
             <Font size="30.0" />
          </font>
       </TextArea>
+      <Button fx:id="correctButton" layoutX="79.0" layoutY="314.0" mnemonicParsing="false" onAction="#correct" prefHeight="60.0" prefWidth="113.0" style="-fx-background-color: #00dd00;" text="Richtig" visible="false">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button fx:id="wrongButton" layoutX="451.0" layoutY="314.0" mnemonicParsing="false" onAction="#wrong" prefHeight="60.0" prefWidth="114.0" style="-fx-background-color: #bd0000;" text="Falsch" visible="false">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
    </children>
 </AnchorPane>
