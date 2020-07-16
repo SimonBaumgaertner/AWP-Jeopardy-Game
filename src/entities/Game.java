@@ -6,9 +6,6 @@ import java.util.List;
 
 public class Game extends Entity{
     Template template;
-    List<Question> fieldList;
-    List<Player> players;
-
 
     public Game(int gameId, Template template) {
         this.id = gameId;
@@ -44,11 +41,4 @@ public class Game extends Entity{
         return "(" + id + ", " + getTemplate().getId()+ ")";
     }
 
-    public List<Player> getPlayers() {
-        return players;
-    }
-
-    public void setPlayers(List<Player> players) {
-        this.players = players;
-    }
 }

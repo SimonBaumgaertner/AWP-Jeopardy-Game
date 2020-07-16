@@ -1,11 +1,15 @@
 package gui;
 
 import entities.Question;
+import game.GameManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
+import javafx.stage.Window;
+import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 
@@ -13,8 +17,6 @@ import java.io.IOException;
 
 public class QuestionView {
 
-    @FXML
-    Button closeQuestionButton;
     @FXML
     Button antwortButton;
     @FXML
@@ -28,21 +30,15 @@ public class QuestionView {
 
     Question question;
 
+    GameManager gm;
     @FXML
     public void initialize() {
-
-        // String s = antwortButton.getParent().getScene().getRoot().getId();
-        question = new Question(null, "mündliche oder schriftliche Erwiderung, Entgegnung", "Was ist Antwort?");
+        gm = new GameManager();
+        question = gm.getActiveQuestion();
         topTextArea.setText(question.getStatement());
         topTextArea.setVisible(true);
+
     }
-
-    @FXML
-    public void closeQuestion(ActionEvent actionEvent)throws IOException {
-        close();
-    }
-
-
 
     @FXML
     public void antwortButtonAction(ActionEvent actionEvent)throws IOException {
@@ -54,6 +50,7 @@ public class QuestionView {
 
     @FXML
     public void correct(ActionEvent actionEvent) {
+        gm.getActivePlayer().setPoints(gm.getActivePlayer().getPoints() + gm.getActiveQuestion().getField().getRowNumber() * 400);
         close();
     }
 
@@ -63,7 +60,10 @@ public class QuestionView {
     }
 
     private void close() {
-        Stage stage = (Stage) closeQuestionButton.getScene().getWindow();
+        question.setAnswered(true);
+        gm.turnSwap();
+        Stage stage = (Stage) wrongButton.getScene().getWindow();
+        stage.fireEvent(new WindowEvent(stage, WindowEvent.WINDOW_CLOSE_REQUEST));
         stage.close();
     }
 

@@ -100,8 +100,8 @@ public class DatabaseManager {
               entitiesFromList.add(entity);
           }
       }
-      synchronizedEntities = synchronizeLists(entitiesFromList,cloneFromDb);
-      return synchronizedEntities;
+      List<Entity> synchronizeLists = synchronizeLists(entitiesFromList,cloneFromDb);
+      return synchronizeLists;
     }
 
 
