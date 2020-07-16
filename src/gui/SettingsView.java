@@ -1,6 +1,8 @@
 package gui;
 
 import entities.Entity;
+import entities.Game;
+import entities.Player;
 import entities.Template;
 import db.DatabaseManager;
 import javafx.event.ActionEvent;
@@ -10,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
@@ -18,10 +21,16 @@ import java.util.List;
 
 public class  SettingsView {
     @FXML
+    public TextField player1Name;
+    @FXML
+    public TextField player2Name;
+    @FXML
     ComboBox settingCombo;
 
     public void startGame(ActionEvent actionEvent) throws IOException {
         Template chosenTemplate = (Template) settingCombo.getValue();
+
+        createPlayedGame(chosenTemplate);
 
         Parent gameView = FXMLLoader.load(getClass().getResource("gameView.fxml"));
 
@@ -52,5 +61,16 @@ public class  SettingsView {
                 return t;
             }
         });
+    }
+
+    public void createPlayedGame(Template template){
+
+        Game game = new Game(template);
+        Player player1 = new Player(player1Name.getText(), game, 0);
+        Player player2 = new Player(player2Name.getText(), game,  0);
+
+        game.getPlayers().add(player1);
+        game.getPlayers().add(player2);
+
     }
 }

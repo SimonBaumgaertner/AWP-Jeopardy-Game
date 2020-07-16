@@ -38,10 +38,17 @@ public class Game extends Entity{
         Game model = (Game) e;
         setTemplate(model.getTemplate());
     }
+
     @Override
     public String getValues() {
         return "(" + id + ", " + getTemplate().getId()+ ")";
     }
 
+    public List<Player> getPlayers() {
+        return players;
+    }
 
+    public void setPlayers(List<Player> players) {
+        this.players = players;
+    }
 }

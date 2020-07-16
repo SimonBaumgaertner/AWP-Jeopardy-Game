@@ -12,4 +12,8 @@ public class GameManager {
     public static Game getActiveGame() {
         return activeGame;
     }
+
+    public static void setActiveGame(Game activeGame) {
+        GameManager.activeGame = activeGame;
+    }
 }
