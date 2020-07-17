@@ -35,6 +35,7 @@ public class QuestionView {
     public void initialize() {
         gm = new GameManager();
         question = gm.getActiveQuestion();
+        topTextArea.setWrapText(true);
         topTextArea.setText(question.getStatement());
         topTextArea.setVisible(true);
 
@@ -42,6 +43,7 @@ public class QuestionView {
 
     @FXML
     public void antwortButtonAction(ActionEvent actionEvent)throws IOException {
+        bottomTextArea.setWrapText(true);
         bottomTextArea.setText(question.getAnswer());
         bottomTextArea.setVisible(true);
         correctButton.setVisible(true);
