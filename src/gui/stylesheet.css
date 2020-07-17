@@ -20,6 +20,7 @@
 }
 .text-area, .text-area .viewport, .text-area .content {
     -fx-background-color: transparent ;
+    -fx-text-fill : #000
 }
 
 .combo-box .list-cell
