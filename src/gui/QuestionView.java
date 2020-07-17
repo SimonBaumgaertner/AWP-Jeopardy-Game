@@ -42,7 +42,7 @@ public class QuestionView {
     }
 
     @FXML
-    public void antwortButtonAction(ActionEvent actionEvent)throws IOException {
+    public void answerButtonAction(ActionEvent actionEvent)throws IOException {
         bottomTextArea.setWrapText(true);
         bottomTextArea.setText(question.getAnswer());
         bottomTextArea.setVisible(true);
