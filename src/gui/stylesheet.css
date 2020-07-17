@@ -23,6 +23,19 @@
     -fx-text-fill : #000
 }
 
+#topTextArea{
+-fx-text-fill: white;
+-fx-font-weight: normal;
+-fx-font-size : 18px;
+}
+
+#bottomTextArea{
+-fx-text-fill: white;
+-fx-font-weight: normal;
+-fx-font-size : 18px;
+}
+
+
 .combo-box .list-cell
 {
     -fx-background:  #d2d2d2;

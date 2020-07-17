@@ -11,13 +11,13 @@
          <font>
             <Font name="Century Gothic" size="16.0" />
          </font></Button>
-      <TextArea fx:id="topTextArea" editable="false" layoutX="6.0" layoutY="16.0" prefHeight="212.0" prefWidth="688.0" style="-fx-background-color: transparent;" styleClass="text-area" stylesheets="@stylesheet.css" visible="false">
+      <TextArea fx:id="topTextArea" editable="false" focusTraversable="false" layoutX="6.0" layoutY="16.0" prefHeight="212.0" prefWidth="688.0" style="-fx-background-color: transparent;" styleClass="text-area" stylesheets="@stylesheet.css" visible="false">
          <font>
-            <Font size="15.0" />
+            <Font name="Century Gothic" size="18.0" />
          </font></TextArea>
-      <TextArea fx:id="bottomTextArea" disable="true" editable="false" layoutX="10.0" layoutY="278.0" prefHeight="120.0" prefWidth="680.0" style="-fx-background-color: transparent;" styleClass="text-area" stylesheets="@stylesheet.css" visible="false" wrapText="true">
+      <TextArea fx:id="bottomTextArea" editable="false" focusTraversable="false" layoutX="10.0" layoutY="284.0" prefHeight="120.0" prefWidth="680.0" style="-fx-background-color: transparent;" styleClass="text-area" stylesheets="@stylesheet.css" visible="false" wrapText="true">
          <font>
-            <Font name="Century Gothic" size="30.0" />
+            <Font name="Century Gothic" size="18.0" />
          </font>
       </TextArea>
       <Button fx:id="correctButton" layoutX="60.0" layoutY="404.0" mnemonicParsing="false" onAction="#correct" prefHeight="60.0" prefWidth="113.0" style="-fx-background-color: #80ff00;" text="Richtig" visible="false">
