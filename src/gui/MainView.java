@@ -18,9 +18,9 @@ public class MainView {
 
     @FXML
     public void startGame(javafx.event.ActionEvent actionEvent) throws IOException {
-        Parent gameView = FXMLLoader.load(getClass().getResource("settingsView.fxml"));
+        Parent settingsView = FXMLLoader.load(getClass().getResource("settingsView.fxml"));
 
-        Scene scene2 = new Scene(gameView);
+        Scene scene2 = new Scene(settingsView);
         Stage window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         window.setScene(scene2);
         window.show();
@@ -32,4 +32,12 @@ public class MainView {
         window.close();
     }
 
+    public void loadGame(ActionEvent actionEvent) throws IOException {
+        Parent loadView = FXMLLoader.load(getClass().getResource("loadView.fxml"));
+
+        Scene scene2 = new Scene(loadView);
+        Stage window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        window.setScene(scene2);
+        window.show();
+    }
 }

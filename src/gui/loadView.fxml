@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="pane" prefHeight="346.0" prefWidth="600.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.LoadView">
+   <children>
+      <Label layoutX="220.0" layoutY="14.0" text="Spiel laden" textFill="#d2d2d2">
+         <font>
+            <Font name="Century Gothic" size="30.0" />
+         </font>
+      </Label>
+      <Button layoutX="335.0" layoutY="293.0" mnemonicParsing="false" onAction="#loadAction" prefHeight="26.0" prefWidth="90.0" text="Laden" textFill="#d2d2d2">
+         <font>
+            <Font name="Century Gothic" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="451.0" layoutY="293.0" mnemonicParsing="false" onAction="#goBackAction" prefHeight="26.0" prefWidth="90.0" text="Zurück" textFill="#d2d2d2">
+         <font>
+            <Font name="Century Gothic" size="14.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="loadGameCombo" layoutX="65.0" layoutY="121.0" prefHeight="45.0" prefWidth="470.0" />
+   </children>
+</AnchorPane>
