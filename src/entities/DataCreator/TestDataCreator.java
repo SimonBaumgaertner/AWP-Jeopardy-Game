@@ -68,7 +68,7 @@ public class TestDataCreator {
                 "die Aufteilung von Attributen (Tabellenspalten) in mehrere Relationen (Tabellen) gemäß von Regeln, so dass eine Form entsteht, die keine Redundanzen mehr enthält.", "Normalisierung", /**/
                 "ein System zur elektronischen Datenverwaltung", "Datenbank", /**/
                 "die weitest verbreiteste Datenbanksprache zur Definition von Datenstrukturen in relationalen Datenbanken", "SQL", /**/
-                "es dient dazu, im Rahmen der semantischen Datenmodellierung den in einem gegebenen Kontext (z. B. einem Projekt zur Erstellung eines Informationssystems) relevanten Ausschnitt der realen Welt zu bestimmen und darzustellen.", "ER-Modell", /**/
+                "es dient dazu, im Rahmen der semantischen Datenmodellierung den in einem gegebenen Kontext relevanten Ausschnitt der realen Welt zu bestimmen und darzustellen", "ER-Modell", /**/
                 "Korrektheit der Beziehungen zwischen den Attributen in einer Relation und der Erhaltung der Eindeutigkeit des Schlüssels.", "referentielle Integrität", /**/
         };
         String[] engquest = new String[] {
@@ -100,13 +100,13 @@ public class TestDataCreator {
                 "ist ein effizientes Verfahren zum Aufbau verlustfreier Datenübertragungen zwischen zwei Instanzen.", "3-Wege-Handshake", /**/
         };
         Category[] categories = new Category[] {cBWP,cAWP,cEnglisch,cITP,cSozi,cVSY};
-        String[][] questions = new String[][] {awpquest,bwpquest,engquest,itpquest,sozquest,vsyquest};
+        String[][] questions = new String[][] {bwpquest, awpquest,engquest,itpquest,sozquest,vsyquest};
 
 
 
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 5; j++) {
-                Field field = new Field(categories[i], j);
+                Field field = new Field(categories[i], j + 1);
                 Question question = new Question(field, questions[i][j*2], questions[i][j*2 + 1]);
                 entityList.add(field);
                 entityList.add(question);

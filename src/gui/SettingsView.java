@@ -28,6 +28,7 @@ public class  SettingsView {
     @FXML
     ComboBox settingCombo;
 
+    @FXML
     public void startGame(ActionEvent actionEvent) throws IOException {
         Template chosenTemplate = (Template) settingCombo.getValue();
 

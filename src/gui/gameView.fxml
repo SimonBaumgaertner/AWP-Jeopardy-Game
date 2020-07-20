@@ -46,7 +46,7 @@
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>
-            <Button fx:id="k4d400" layoutX="278.0" layoutY="30.0" mnemonicParsing="false" onAction="#closeGame" prefHeight="47.0" prefWidth="120.0" text="\$400" textFill="#f0f0f0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <Button fx:id="k4d400" layoutX="278.0" layoutY="30.0" mnemonicParsing="false" onAction="#openQuestion" prefHeight="47.0" prefWidth="120.0" text="\$400" textFill="#f0f0f0" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <font>
                   <Font name="Century Gothic" size="20.0" />
                </font></Button>

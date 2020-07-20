@@ -41,13 +41,14 @@ public class GameManager {
 
     private void loadQuestions() {
         List<Entity> questionList =  db.getAllOf(Question.class);
-        for (int i = 0; i < questionList.size(); i++) {
+        for (int i = 1; i < questionList.size(); i++) {
             Question question = (Question) questionList.get(i);
             question.setAnswered(false);
             if (question.getField().getCategory().getTemplate() == activeGame.getTemplate()) {
                 questionMatrix[categoryMap.get(question.getField().getCategory())][question.getField().getRowNumber()] = question;
             }
         }
+        System.out.println("moin");
     }
 
     public Game getActiveGame() {
