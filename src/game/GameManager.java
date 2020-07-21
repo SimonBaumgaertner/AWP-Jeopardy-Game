@@ -23,7 +23,7 @@ public class GameManager {
         players[0] = new Player(player1, activeGame, 0);
         players[1] = new Player(player2, activeGame,  0);
         loadCategories();
-        loadQuestions();
+        loadQuestionsForNewGame();
         activePlayer = players[0];
     }
 
@@ -43,6 +43,16 @@ public class GameManager {
         List<Entity> questionList =  db.getAllOf(Question.class);
         for (int i = 1; i < questionList.size(); i++) {
             Question question = (Question) questionList.get(i);
+            if (question.getField().getCategory().getTemplate() == activeGame.getTemplate()) {
+                questionMatrix[categoryMap.get(question.getField().getCategory())][question.getField().getRowNumber()] = question;
+            }
+        }
+    }
+    private void loadQuestionsForNewGame() {
+        List<Entity> questionList =  db.getAllOf(Question.class);
+        for (int i = 1; i < questionList.size(); i++) {
+            Question question = (Question) questionList.get(i);
+            question.setAnswered(false);
             if (question.getField().getCategory().getTemplate() == activeGame.getTemplate()) {
                 questionMatrix[categoryMap.get(question.getField().getCategory())][question.getField().getRowNumber()] = question;
             }

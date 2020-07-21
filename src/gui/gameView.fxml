@@ -231,7 +231,7 @@
       </Label>
       <Button fx:id="player1turn" layoutX="113.0" layoutY="40.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="66.0" style="-fx-background-color: #00dd00;" text="Zug" visible="false" />
       <Button fx:id="player2turn" layoutX="826.0" layoutY="40.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="66.0" style="-fx-background-color: #00dd00;" text="Zug" visible="false" />
-      <Button fx:id="initializeQuestionsButton" layoutX="390.0" layoutY="219.0" mnemonicParsing="false" onAction="#initializeQuestions" prefHeight="231.0" prefWidth="245.0" style="-fx-opacity: 0.6; -fx-background-radius: 360;" text="Start">
+      <Button fx:id="initializeQuestionsButton" layoutX="278.0" layoutY="246.0" mnemonicParsing="false" onAction="#initializeQuestions" prefHeight="109.0" prefWidth="468.0" style="-fx-opacity: 0.6; -fx-background-radius: 2;" text="Start" textFill="#f0f0f0">
          <font>
             <Font name="Century Gothic" size="41.0" />
          </font></Button>
