@@ -75,8 +75,8 @@ public class GameManager {
         questionMatrix = new Question[7][6]; // [category][row]
         activeQuestion = null;
         players = new Player[2];
-        Category[] categories = new Category[7];
-        Map<Category,Integer> categoryMap=new HashMap<Category,Integer>();
+        categories = new Category[7];
+        categoryMap=    new HashMap<Category,Integer>();
         activePlayer = null;
     }
 
