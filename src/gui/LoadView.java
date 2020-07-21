@@ -3,6 +3,8 @@ package gui;
 import db.DatabaseManager;
 import entities.Entity;
 import entities.Game;
+import entities.Template;
+import game.GameManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -31,26 +33,43 @@ public class LoadView {
     }
 
     @FXML
-    public void loadAction(ActionEvent actionEvent) {
-        DatabaseManager dbMangager = new DatabaseManager();
-        List<Entity> games = (dbMangager.getAllOf(Game.class));
-        loadGameCombo.getItems().addAll(games);
-        loadGameCombo.setValue(games.iterator().next());
-        loadGameCombo.setConverter(new StringConverter<Game>() {
+    public void loadAction(ActionEvent actionEvent) throws IOException {
 
-            @Override
-            public String toString(Game object) {
-                return object.getValues();
-            } //TODO GAME NAME
+        Game chosenGame = (Game) loadGameCombo.getValue();
+
+        GameManager gameManager = new GameManager();
+
+        gameManager.loadGame(chosenGame);
+
+        Parent gameView = FXMLLoader.load(getClass().getResource("gameView.fxml"));
+
+        Scene scene2 = new Scene(gameView);
+        Stage window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        window.setScene(scene2);
+        window.show();
+    };
+
+        @FXML
+        public void initialize() {
+            DatabaseManager dbMangager = new DatabaseManager();
+            List<Entity> games = (dbMangager.getAllOf(Game.class));
+            loadGameCombo.getItems().addAll(games);
+            loadGameCombo.setValue(games.iterator().next());
+            loadGameCombo.setConverter(new StringConverter<Game>() {
+
+                @Override
+                public String toString(Game object) {
+                    return object.getValues();
+                } //TODO GAME NAME
 
 
-            @Override
-            public Game fromString(String string) {
-                Game t = (Game) loadGameCombo.getItems().stream().filter(ap ->
-                        ap.toString().equals(string)).findFirst().orElse(null);
-                System.out.println(t);
-                return t;
-            }
-    });
-}
+                @Override
+                public Game fromString(String string) {
+                    Game t = (Game) loadGameCombo.getItems().stream().filter(ap ->
+                            ap.toString().equals(string)).findFirst().orElse(null);
+                    System.out.println(t);
+                    return t;
+                }
+            });
+        }
 }

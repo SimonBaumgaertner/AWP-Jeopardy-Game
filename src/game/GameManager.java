@@ -51,6 +51,28 @@ public class GameManager {
         System.out.println("moin");
     }
 
+    private void loadPlayer(Game game){
+        int count = 0;
+        List<Entity> playersList = db.getAllOf(Player.class);
+        for (int i = 0; i < playersList.size(); i++){
+            Player player = (Player) playersList.get(i);
+            if (player.getGame() == game){
+                players[0] = player;
+                count++;
+            }else if (player.getGame() == game && count == 1);
+                players[1] = player;
+        }
+    }
+
+    public void loadGame(Game game){
+        activeGame = game;
+        loadPlayer(game);
+        loadCategories();
+        loadQuestions();
+        activePlayer = players[0];
+
+    }
+
     public Game getActiveGame() {
         return activeGame;
     }
