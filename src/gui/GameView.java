@@ -1,6 +1,7 @@
 package gui;
 
 import db.DatabaseManager;
+import entities.AnsweredQuestion;
 import entities.Category;
 import entities.Entity;
 import entities.Question;
@@ -160,13 +161,9 @@ public class GameView implements Initializable {
     public void saveGame(ActionEvent actionEvent) {
         DatabaseManager db = new DatabaseManager();
         db.openTransaction();
-        gm.getActiveGame().setGameName(gm.getPlayers()[0].getPlayerName() + " VS " + gm.getPlayers()[1].getPlayerName() + " #" + String.valueOf(gm.getActiveGame().getId()));
-        db.persist(gm.getActiveGame(), gm.getPlayers()[0], gm.getPlayers()[1]);
-        for(int cat = 1; cat < gm.getQuestionMatrix().length; cat++){
-            for (int row = 1; row < gm.getQuestionMatrix()[0].length; row++){
-                Entity question = gm.getQuestionMatrix()[cat][row];
-                db.update(gm.getQuestionMatrix()[cat][row]);
-            }
+        db.persist(gm.getActiveGame(), gm.getPlayers()[0] , gm.getPlayers()[1]);
+        for (Entity entity : gm.getAnsweredQuestions()) {
+            db.persist(entity);
         }
         db.commitTransaction();
         try {

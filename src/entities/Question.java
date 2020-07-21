@@ -26,14 +26,6 @@ public class Question extends Entity{
 
     }
 
-    public Question(int id, Field field, String statement, String answer, boolean answered) {
-        this.field = field;
-        this.statement = statement;
-        this.answer = answer;
-        this.answered = answered;
-        this.id = id;
-    }
-
     public Field getField() {
         return field;
     }
@@ -77,6 +69,6 @@ public class Question extends Entity{
 
     @Override
     public String getValues() {
-        return "(" + id + ", " + getField().getId()+ ", '" +  getStatement() + "', '" + getAnswer() +"', " + getAnswered() + ")";
+        return "(" + id + ", " + getField().getId()+ ", '" +  getStatement() + "', '" + getAnswer() + "')";
     }
 }

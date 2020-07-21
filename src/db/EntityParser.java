@@ -51,17 +51,12 @@ public class EntityParser {
                 Field field = (Field) databaseManager.findById(Integer.valueOf(entry.split(" --- ")[1]), Field.class);
                 String statement = entry.split(" --- ")[2];
                 String answer = entry.split(" --- ")[3];
-                boolean answered = parseToBoolean(entry.split(" --- ")[4]);
-                if (id == 143) {
-                    System.out.println("yee");
-                }
 
-                list.add(new Question(id,field,statement,answer,answered));
+                list.add(new Question(id,field,statement,answer));
 
             }  else if (c == Game.class) {
                 int id = Integer.valueOf(entry.split(" --- ")[0]);
                 Template template = (Template) databaseManager.findById(Integer.valueOf(entry.split(" --- ")[1]), Template.class);
-                String name = entry.split("---")[2];
 
                 list.add(new Game(id,template));
 

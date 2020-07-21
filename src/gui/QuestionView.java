@@ -61,7 +61,7 @@ public class QuestionView {
     }
 
     private void close() {
-        question.setAnswered(true);
+        gm.answerQuestion(gm.getActiveQuestion());
         gm.turnSwap();
         Stage stage = (Stage) wrongButton.getScene().getWindow();
         stage.fireEvent(new WindowEvent(stage, WindowEvent.WINDOW_CLOSE_REQUEST));

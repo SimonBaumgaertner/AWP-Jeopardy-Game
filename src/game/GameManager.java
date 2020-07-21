@@ -4,6 +4,7 @@ import db.DatabaseManager;
 import entities.*;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -15,6 +16,10 @@ public class GameManager {
     private static Category[] categories = new Category[7];
     private static Map<Category,Integer> categoryMap=new HashMap<Category,Integer>();
     private static Player activePlayer;
+
+
+
+    private static List<AnsweredQuestion> answeredQuestions = new LinkedList<>();
 
     DatabaseManager db = new DatabaseManager();
 
@@ -68,6 +73,9 @@ public class GameManager {
                 players[count] = player;
                 count++;
             }
+            if (count == 2) {
+                break;
+            }
         }
     }
 
@@ -76,9 +84,26 @@ public class GameManager {
         loadPlayer(game);
         loadCategories();
         loadQuestions();
+        loadAnsweredQuestions();
         activePlayer = players[calculateActivePlayer()];
     }
 
+    public void loadAnsweredQuestions() {
+        answeredQuestions.clear();
+        List<Entity> answeredQuestionEntities = db.getAllOf(AnsweredQuestion.class);
+        for (Entity entity : answeredQuestionEntities) {
+            AnsweredQuestion answeredQuestion = (AnsweredQuestion) entity;
+            if (answeredQuestion.getGame() == activeGame) {
+                answeredQuestion.getQuestion().setAnswered(true);
+                answeredQuestions.add(answeredQuestion);
+            }
+        }
+    }
+
+    public void answerQuestion(Question question) {
+        answeredQuestions.add(new AnsweredQuestion(activeGame, question));
+        question.setAnswered(true);
+    }
     private int calculateActivePlayer() {
         int count = 0;
         for (int category = 1; category <= 6; category++) {
@@ -97,6 +122,12 @@ public class GameManager {
     }
 
     public void resetManager () {
+        for (int category = 1; category <= 6; category++) {
+            for (int row = 1; row <= 5; row++) {
+                Question question = questionMatrix[category][row];
+                question.setAnswered(false);
+            }
+        }
         activeGame = null;
         questionMatrix = new Question[7][6]; // [category][row]
         activeQuestion = null;
@@ -104,6 +135,16 @@ public class GameManager {
         categories = new Category[7];
         categoryMap=    new HashMap<Category,Integer>();
         activePlayer = null;
+        answeredQuestions.clear();
+
+    }
+
+    public void turnSwap() {
+        if (activePlayer == players[0]) {
+            activePlayer = players[1];
+        } else if (activePlayer == players[1]) {
+            activePlayer = players[0];
+        }
     }
 
     public Game getActiveGame() {
@@ -145,18 +186,29 @@ public class GameManager {
         GameManager.categoryMap = categoryMap;
     }
 
+
+    public void setCategories(Category[] categories) {
+        GameManager.categories = categories;
+    }
+
+    public void setActivePlayer(Player activePlayer) {
+        GameManager.activePlayer = activePlayer;
+    }
+
+    public List<AnsweredQuestion> getAnsweredQuestions() {
+        return answeredQuestions;
+    }
+
+    public void setAnsweredQuestions(List<AnsweredQuestion> answeredQuestions) {
+        GameManager.answeredQuestions = answeredQuestions;
+    }
+
     public Category[] getCategories() {
         return categories;
     }
     public Player getActivePlayer() {
         return activePlayer;
     }
-    public void turnSwap() {
-        if (activePlayer == players[0]) {
-            activePlayer = players[1];
-        } else if (activePlayer == players[1]) {
-            activePlayer = players[0];
-        }
-    }
+
 
 }

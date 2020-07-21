@@ -37,12 +37,11 @@ public class  SettingsView {
         createPlayedGame(chosenTemplate);
 
         Parent gameView = FXMLLoader.load(getClass().getResource("gameView.fxml"));
+        Scene scene = new Scene(gameView);
+        Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(scene);
 
-        Scene scene2 = new Scene(gameView);
-        Stage window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-        window.setScene(scene2);
-        window.fireEvent(new WindowEvent(window, WindowEvent.ANY));
-        window.show();
+        stage.show();
     }
 
     @FXML
@@ -69,12 +68,7 @@ public class  SettingsView {
     }
 
     public void createPlayedGame(Template template){
-
         GameManager gameManager = new GameManager();
-
         gameManager.startGame(template, player1Name.getText(), player2Name.getText());
-
-
-
     }
 }

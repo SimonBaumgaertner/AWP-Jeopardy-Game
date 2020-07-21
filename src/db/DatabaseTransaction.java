@@ -32,6 +32,7 @@ public class DatabaseTransaction {
         remove(entity);
         persist(entity);
     }
+
     protected void remove(Entity entity) {
         String sqlTable = entity.getClass().toString().split("\\.")[1];
         String sqlInstructionDelete ="DELETE FROM "+ sqlTable +" WHERE "+ sqlTable +"id=" + entity.getId()+";\n";
