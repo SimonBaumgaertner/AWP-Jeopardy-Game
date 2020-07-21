@@ -38,7 +38,6 @@ public class QuestionView {
         topTextArea.setWrapText(true);
         topTextArea.setText(question.getStatement());
         topTextArea.setVisible(true);
-
     }
 
     @FXML

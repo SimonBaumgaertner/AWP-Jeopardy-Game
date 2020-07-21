@@ -2,6 +2,7 @@ package gui;
 
 import db.DatabaseManager;
 import entities.Category;
+import entities.Entity;
 import game.GameManager;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -19,6 +20,8 @@ import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class GameView implements Initializable {
@@ -58,7 +61,7 @@ public class GameView implements Initializable {
     public void closeGame(ActionEvent actionEvent)throws IOException {
 
         Parent mainView = FXMLLoader.load(getClass().getResource("mainView.fxml"));
-
+        gm.resetManager();
         Scene scene = new Scene(mainView);
         Stage window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         window.setScene(scene);
@@ -103,7 +106,7 @@ public class GameView implements Initializable {
         k5.setText(categories[5].getCategoryName());
         k6.setText(categories[6].getCategoryName());
 
-
+   // update();
     }
 
     @FXML
@@ -115,7 +118,7 @@ public class GameView implements Initializable {
         showQuestion(category, row);
     }
 
-    private void update() {
+    public void update() {
         updatePlayerBoard();
         updateFields();
         checkFinished();
@@ -153,11 +156,17 @@ public class GameView implements Initializable {
         DatabaseManager db = new DatabaseManager();
         db.openTransaction();
         db.persist(gm.getActiveGame(), gm.getPlayers()[0], gm.getPlayers()[1]);
-        for(int i = 1; i < gm.getQuestionMatrix().length -1; i++){
-            for (int j = 1; j < gm.getQuestionMatrix()[0].length-1; j++){
-                db.update(gm.getQuestionMatrix()[i][j]);
+        for(int cat = 1; cat < gm.getQuestionMatrix().length; cat++){
+            for (int row = 1; row < gm.getQuestionMatrix()[0].length; row++){
+                Entity question = gm.getQuestionMatrix()[cat][row];
+                db.update(gm.getQuestionMatrix()[cat][row]);
             }
         }
         db.commitTransaction();
+        try {
+            closeGame(actionEvent);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -7,6 +7,7 @@ import entities.Template;
 import db.DatabaseManager;
 import game.GameManager;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -15,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import javafx.util.StringConverter;
 
 import java.io.IOException;
@@ -39,6 +41,7 @@ public class  SettingsView {
         Scene scene2 = new Scene(gameView);
         Stage window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
         window.setScene(scene2);
+        window.fireEvent(new WindowEvent(window, WindowEvent.ANY));
         window.show();
     }
 

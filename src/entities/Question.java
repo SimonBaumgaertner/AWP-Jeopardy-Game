@@ -31,7 +31,7 @@ public class Question extends Entity{
         this.statement = statement;
         this.answer = answer;
         this.answered = answered;
-        this.id = DatabaseManager.getAndIncreaseID();
+        this.id = id;
     }
 
     public Field getField() {

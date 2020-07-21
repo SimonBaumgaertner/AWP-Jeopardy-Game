@@ -43,24 +43,21 @@ public class GameManager {
         List<Entity> questionList =  db.getAllOf(Question.class);
         for (int i = 1; i < questionList.size(); i++) {
             Question question = (Question) questionList.get(i);
-            question.setAnswered(false);
             if (question.getField().getCategory().getTemplate() == activeGame.getTemplate()) {
                 questionMatrix[categoryMap.get(question.getField().getCategory())][question.getField().getRowNumber()] = question;
             }
         }
-        System.out.println("moin");
     }
 
-    private void loadPlayer(Game game){
+    private void loadPlayer(Game game) {
         int count = 0;
         List<Entity> playersList = db.getAllOf(Player.class);
-        for (int i = 0; i < playersList.size(); i++){
+        for (int i = 0; i < playersList.size(); i++) {
             Player player = (Player) playersList.get(i);
-            if (player.getGame() == game){
-                players[0] = player;
+            if (player.getGame() == game) {
+                players[count] = player;
                 count++;
-            }else if (player.getGame() == game && count == 1);
-                players[1] = player;
+            }
         }
     }
 
@@ -71,6 +68,16 @@ public class GameManager {
         loadQuestions();
         activePlayer = players[0];
 
+    }
+
+    public void resetManager () {
+        activeGame = null;
+        questionMatrix = new Question[7][6]; // [category][row]
+        activeQuestion = null;
+        players = new Player[2];
+        Category[] categories = new Category[7];
+        Map<Category,Integer> categoryMap=new HashMap<Category,Integer>();
+        activePlayer = null;
     }
 
     public Game getActiveGame() {

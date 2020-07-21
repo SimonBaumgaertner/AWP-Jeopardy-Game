@@ -43,8 +43,8 @@ create table `question` (
     
 create table `player` (
 	`playerId` int not null auto_increment,
-    `playerName` varchar(50) not null,
     `gameId` int not null,
+    `playerName` varchar(50) not null,
 	`points` int not null,
     primary key(`playerId`),
     FOREIGN KEY (`gameId`) REFERENCES game(`gameId`)

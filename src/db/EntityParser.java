@@ -52,7 +52,9 @@ public class EntityParser {
                 String statement = entry.split(" --- ")[2];
                 String answer = entry.split(" --- ")[3];
                 boolean answered = parseToBoolean(entry.split(" --- ")[4]);
-
+                if (id == 143) {
+                    System.out.println("yee");
+                }
 
                 list.add(new Question(id,field,statement,answer,answered));
 
@@ -64,8 +66,8 @@ public class EntityParser {
 
             } else if (c == Player.class) {
                 int id = Integer.valueOf(entry.split(" --- ")[0]);
-                String name = entry.split(" --- ")[1];
-                Game game = (Game) databaseManager.findById(Integer.valueOf(entry.split(" --- ")[2]), Game.class);
+                Game game = (Game) databaseManager.findById(Integer.valueOf(entry.split(" --- ")[1]), Game.class);
+                String name = entry.split(" --- ")[2];
                 int points = Integer.valueOf(entry.split(" --- ")[3]);
 
                 list.add(new Player(id,name,game,points));
