@@ -59,7 +59,7 @@ public class LoadView {
 
                 @Override
                 public String toString(Game object) {
-                    return object.getValues();
+                    return object.getGameName();
                 } //TODO GAME NAME
 
 

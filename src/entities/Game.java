@@ -6,6 +6,7 @@ import java.util.List;
 
 public class Game extends Entity{
     Template template;
+    String gameName;
 
     public Game(int gameId, Template template) {
         this.id = gameId;
@@ -39,6 +40,14 @@ public class Game extends Entity{
     @Override
     public String getValues() {
         return "(" + id + ", " + getTemplate().getId()+ ")";
+    }
+
+    public String getGameName() {
+        return gameName;
+    }
+
+    public void setGameName(String gameName) {
+        this.gameName = gameName;
     }
 
 }

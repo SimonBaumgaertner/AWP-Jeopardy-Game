@@ -61,6 +61,7 @@ public class EntityParser {
             }  else if (c == Game.class) {
                 int id = Integer.valueOf(entry.split(" --- ")[0]);
                 Template template = (Template) databaseManager.findById(Integer.valueOf(entry.split(" --- ")[1]), Template.class);
+                String name = entry.split("---")[2];
 
                 list.add(new Game(id,template));
 
