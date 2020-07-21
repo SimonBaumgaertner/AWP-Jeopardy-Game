@@ -1,5 +1,6 @@
 package gui;
 
+import db.DatabaseManager;
 import entities.Category;
 import game.GameManager;
 import javafx.event.ActionEvent;
@@ -148,4 +149,15 @@ public class GameView implements Initializable {
         // check if there are unanswered Questions
     }
 
+    public void saveGame(ActionEvent actionEvent) {
+        DatabaseManager db = new DatabaseManager();
+        db.openTransaction();
+        db.persist(gm.getActiveGame(), gm.getPlayers()[0], gm.getPlayers()[1]);
+        for(int i = 1; i < gm.getQuestionMatrix().length -1; i++){
+            for (int j = 1; j < gm.getQuestionMatrix()[0].length-1; j++){
+                db.update(gm.getQuestionMatrix()[i][j]);
+            }
+        }
+        db.commitTransaction();
+    }
 }
