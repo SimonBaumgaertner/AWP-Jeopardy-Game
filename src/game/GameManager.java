@@ -76,8 +76,24 @@ public class GameManager {
         loadPlayer(game);
         loadCategories();
         loadQuestions();
-        activePlayer = players[0];
+        activePlayer = players[calculateActivePlayer()];
+    }
 
+    private int calculateActivePlayer() {
+        int count = 0;
+        for (int category = 1; category <= 6; category++) {
+            for (int row = 1; row <= 5; row++) {
+                Question question = questionMatrix[category][row];
+                if (question.getAnswered()) {
+                    count++;
+                }
+            }
+        }
+        if (count % 2 == 0) {
+            return 0;
+        } else {
+            return 1;
+        }
     }
 
     public void resetManager () {
