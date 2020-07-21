@@ -3,6 +3,7 @@ package gui;
 import db.DatabaseManager;
 import entities.Category;
 import entities.Entity;
+import entities.Question;
 import game.GameManager;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -14,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
@@ -22,6 +24,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class GameView implements Initializable {
@@ -53,6 +56,8 @@ public class GameView implements Initializable {
     public Button player1turn;
     @FXML
     public Button player2turn;
+    public Button initializeQuestionsButton;
+    public GridPane gridPane;
 
 
     GameManager gm;
@@ -168,5 +173,25 @@ public class GameView implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    @FXML
+    public void initializeQuestions(ActionEvent actionEvent) {
+        for (int category = 1; category <= 6; category++) {
+            for (int row = 1; row <= 5; row++) {
+                Question question = gm.getQuestionMatrix()[category][row];
+                if (question.getAnswered()) {
+                    Map map = gm.getCategoryMap();
+                    Category cat = question.getField().getCategory();
+                    int moneyAmount = question.getField().getRowNumber() * 400;
+                    String buttonName = "k" + map.get(cat)+ "d" + moneyAmount;
+                    Button button = (Button) player1turn.getScene().lookup("#"+ buttonName);
+                    button.setDisable(true);
+                    button.setVisible(false);
+                }
+            }
+        }
+        initializeQuestionsButton.setDisable(true);
+        initializeQuestionsButton.setVisible(false);
+        gridPane.setVisible(true);
     }
 }
