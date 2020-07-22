@@ -40,4 +40,13 @@ public class MainView {
         window.setScene(scene2);
         window.show();
     }
+
+    public void openRanking(ActionEvent actionEvent) throws IOException {
+        Parent rankingView = FXMLLoader.load(getClass().getResource("rankingView.fxml"));
+
+        Scene scene2 = new Scene(rankingView);
+        Stage window = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        window.setScene(scene2);
+        window.show();
+    }
 }

@@ -2,7 +2,7 @@ package entities;
 
 import db.DatabaseManager;
 
-public class Player extends Entity{
+public class Player extends Entity implements Comparable<Player>{
     String playerName;
     Game game;
     int points;
@@ -61,5 +61,9 @@ public class Player extends Entity{
         return "(" + id + ", " + getGame().getId()+ ", '" +  getPlayerName() + "', " + getPoints() +")";
     }
 
-
+    @Override
+    public int compareTo(Player o) {
+        Player other =  o;
+        return other.getPoints() - this.points;
+    }
 }

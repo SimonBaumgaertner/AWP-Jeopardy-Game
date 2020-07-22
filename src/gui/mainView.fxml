@@ -15,7 +15,7 @@
                   <Font name="Century Gothic" size="19.0" />
                </font>
             </Button>
-            <Button layoutX="90.0" layoutY="355.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="320.0" style="-fx-background-radius: 4;" stylesheets="@stylesheet.css" text="Rangliste" textFill="#d2d2d2">
+            <Button layoutX="90.0" layoutY="355.0" mnemonicParsing="false" onAction="#openRanking" prefHeight="39.0" prefWidth="320.0" style="-fx-background-radius: 4;" stylesheets="@stylesheet.css" text="Rangliste" textFill="#d2d2d2">
                <font>
                   <Font name="Century Gothic" size="19.0" />
                </font>

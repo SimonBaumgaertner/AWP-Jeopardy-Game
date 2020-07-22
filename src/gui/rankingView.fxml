@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="pane" prefHeight="550.0" prefWidth="500.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.RankingView">
+   <children>
+      <Label layoutX="185.0" layoutY="14.0" text="Rangliste" textFill="#d2d2d2">
+         <font>
+            <Font name="Century Gothic" size="30.0" />
+         </font></Label>
+      <Button layoutX="385.0" layoutY="507.0" mnemonicParsing="false" onAction="#goBackAction" prefHeight="23.0" prefWidth="101.0" text="Zurück" textFill="#d2d2d2">
+         <font>
+            <Font name="Century Gothic" size="15.0" />
+         </font>
+      </Button>
+      <Label fx:id="placeOne" layoutX="73.0" layoutY="79.0" prefHeight="49.0" prefWidth="355.0" textFill="#d2d2d2">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <Label fx:id="placeTwo" layoutX="73.0" layoutY="159.0" prefHeight="49.0" prefWidth="355.0" textFill="#d2d2d2">
+         <font>
+            <Font name="Century Gothic" size="20.0" />
+         </font></Label>
+      <Label fx:id="placeThree" layoutX="73.0" layoutY="240.0" prefHeight="49.0" prefWidth="355.0" textFill="#d2d2d2">
+         <font>
+            <Font name="Century Gothic" size="20.0" />
+         </font></Label>
+      <Label fx:id="placeFour" layoutX="73.0" layoutY="321.0" prefHeight="49.0" prefWidth="355.0" textFill="#d2d2d2">
+         <font>
+            <Font name="Century Gothic" size="20.0" />
+         </font></Label>
+      <Label fx:id="placeFive" layoutX="73.0" layoutY="399.0" prefHeight="49.0" prefWidth="355.0" textFill="#d2d2d2">
+         <font>
+            <Font name="Century Gothic" size="20.0" />
+         </font></Label>
+      <Separator layoutX="73.0" layoutY="128.0" prefHeight="29.0" prefWidth="355.0" style="-fx-opacity: 0.5;" />
+      <Separator layoutX="73.0" layoutY="211.0" prefHeight="29.0" prefWidth="355.0" style="-fx-opacity: 0.5;" />
+      <Separator layoutX="73.0" layoutY="292.0" prefHeight="29.0" prefWidth="355.0" style="-fx-opacity: 0.5;" />
+      <Separator layoutX="73.0" layoutY="370.0" prefHeight="29.0" prefWidth="355.0" style="-fx-opacity: 0.5;" />
+      <Separator layoutX="73.0" layoutY="448.0" prefHeight="29.0" prefWidth="355.0" style="-fx-opacity: 0.5;" />
+   </children>
+</AnchorPane>
