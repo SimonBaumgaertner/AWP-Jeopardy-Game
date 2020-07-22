@@ -71,4 +71,14 @@ public class  SettingsView {
         GameManager gameManager = new GameManager();
         gameManager.startGame(template, player1Name.getText(), player2Name.getText());
     }
+
+    public void goBackAction(ActionEvent actionEvent) throws IOException {
+        Parent mainView = FXMLLoader.load(getClass().getResource("mainView.fxml"));
+        Scene scene = new Scene(mainView);
+        Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+
+        stage.show();
+
+    }
 }

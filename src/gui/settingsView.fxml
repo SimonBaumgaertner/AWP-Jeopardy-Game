@@ -18,8 +18,8 @@
          <image>
             <Image url="@../img/user-img.png" />
          </image></ImageView>
-      <Label layoutX="93.0" layoutY="216.0" prefHeight="38.0" prefWidth="46.0" style="-fx-border-color: #d2d2d2; -fx-border-radius: 3;" />
-      <ImageView fx:id="mainImage2" fitHeight="38.0" fitWidth="38.0" layoutX="97.0" layoutY="217.0" pickOnBounds="true" preserveRatio="true">
+      <Label layoutX="93.0" layoutY="218.0" prefHeight="38.0" prefWidth="46.0" style="-fx-border-color: #d2d2d2; -fx-border-radius: 3;" />
+      <ImageView fx:id="mainImage2" fitHeight="38.0" fitWidth="38.0" layoutX="97.0" layoutY="218.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/user-img.png" />
          </image></ImageView>
@@ -33,5 +33,10 @@
          <font>
             <Font name="Century Gothic" size="20.0" />
          </font></Label>
+      <Button layoutX="90.0" layoutY="513.0" mnemonicParsing="false" onAction="#goBackAction" prefHeight="38.0" prefWidth="327.0" text="Zurück" textFill="#d2d2d2">
+         <font>
+            <Font name="Century Gothic" size="19.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
